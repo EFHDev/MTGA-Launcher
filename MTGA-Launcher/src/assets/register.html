@@ -3,175 +3,30 @@
 
 <head>
     <title>Escape From Tarkov Offline Emulator - It's going to be great</title>
+    <link rel="stylesheet" type="text/css" href="css/register.css">
     <link rel="stylesheet" href="https://cdn.tauri.studio/tooltip.css" />
     <script src="https://cdn.tauri.studio/tooltip.js"></script>
     <script src="https://kit.fontawesome.com/71edd74ab2.js" crossorigin="anonymous"></script>
     <script type="module" src="/src/register.js" defer></script>
-    <style>
-        /* CSS for the navigation bar */
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #171c4f;
-            color: white;
-            padding: 20px;
-        }
-
-        @font-face {
-            font-family: 'Bender';
-            src: url('assets/bender.light.otf') format('truetype');
-        }
-
-        /* CSS for the logo */
-        .logo {
-            display: flex;
-            align-items: center;
-            margin: 0 auto;
-        }
-
-        .logo img {
-            height: 50px;
-            margin-right: 10px;
-        }
-
-        .logo h1 {
-            font-size: 24px;
-            margin: 0;
-        }
-
-        /* CSS for the navigation links */
-        .nav-links {
-            display: flex;
-        }
-
-        .nav-links a {
-            font-family: 'Bender';
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        /* CSS for the icon buttons */
-        .icon-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #131741;
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-left: 10px;
-            font-size: 20px;
-            cursor: pointer;
-        }
-
-        .icon-button:hover {
-            background-color: #262f83;
-        }
-
-        .Play {}
-
-        .User {}
-
-        .Settings {}
-
-        .Server {}
-
-        /* CSS for the registration form */
-        .registration-form {
-            margin: 50px auto;
-            width: 500px;
-            background-color: #171c4f;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .registration-form label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        .registration-form input[type="email"],
-        .registration-form input[type="password"],
-        .registration-form select {
-            width: 95%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            font-size: 16px;
-        }
-
-        .registration-form button[type="submit"] {
-            background-color: #1b225d;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .registration-form button[type="submit"]:hover {
-            background-color: #0d1032;
-        }
-
-        /* CSS for the edition dropdown box */
-        .edition-dropdown {
-            margin-top: 0px;
-        }
-
-        .edition-dropdown label {
-            font-weight: bold;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .edition-dropdown select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            font-size: 16px;
-        }
-        body {
-        color: white;
-  font-family: Bender;
-}
-
-        .footer p {
-            margin: 0;
-        }
-    </style>
 </head>
 
-<body>
-    <!-- Navigation bar -->
-    <div class="nav">
-        <body style="background-color:#262f83;"></body>
-        <div class="logo">
-            <img src="MTGA.png" alt="" />
-        </div>
-        <div class="nav-links">
-            <div class="icon-button Play" data-tooltip="Play">
-                <i class="fas fa-play"></i>
-            </div>
-            <div class="icon-button User" data-tooltip="User">
-                <i class="fas fa-user"></i>
-            </div>
-            <div class="icon-button Settings" data-tooltip="Settings">
-                <i class="fas fa-cog"></i>
-            </div>
-            <div class="icon-button Server" data-tooltip="Server">
-                <i class="fas fa-server"></i>
-            </div>
-        </div>
-    </div>
+<body style="background-color:#262f83;">
+    <nav class="sidebar">
+      <ul>
+        <li><a href="#"><i class="fas fa-home"></i></a></li>
+        <li><a href="#"><i class="fas fa-user"></i></a></li>
+        <li><a href="#"><i class="fas fa-cog"></i></a></li>
+        <li><a href="#"><i class="fas fa-server"></i></a></li>
+        <li><a href="http://localhost:1420/"><i class="fa-solid fa-right-from-bracket"></i></a></li> 
+        <li><a href="#"><i class="fa-brands fa-discord"></i></a></li> 
+      </ul>
+      <div class="logo">
+        <img src="MTGA.png" alt="Logo">
+      </div>
+    </nav>
+    <!-- You need to include Font Awesome library to use these icons, you can find it here: https://fontawesome.com/ -->
+    <script src="https://kit.fontawesome.com/71edd74ab2.js" crossorigin="anonymous"></script>
+  </body>
     <!-- Registration form -->
     <div class="registration-form">
         <h2>Create an account</h2>

@@ -18,6 +18,9 @@
         "open": true, 
         "save": true
       },
+      "window": {
+        "all": true
+      },
       "fs": {
         "all": true,
         "scope": ["$APP/*", "$DESKTOP/*"]

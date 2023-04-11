@@ -7,7 +7,9 @@ const errorDiv = document.querySelector(".error");
 async function login() {
   const username = document.getElementById("username").value;
   const rawpassword = document.getElementById("password").value;
-  const hashedPassword = CryptoJS.SHA256(rawpassword).toString();
+  const salt = "MTGA____"
+  const seasonedmeat = salt + rawpassword 
+  const hashedPassword = CryptoJS.SHA256(seasonedmeat).toString();
   console.log(hashedPassword); // $2a$10$U6lk0...
   const response = await fetch('https://127.0.0.1:42069/launcher/account/login', {
     method: 'POST',
