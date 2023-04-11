@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="module" src="/src/main.js" defer></script>
+  <title>Navigation Top Bar</title>
+  <style>
+    /* CSS for the navigation bar */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #171c4f;
+      color: white;
+      padding: 20px;
+      max-width: 700px;
+      height: 70px;
+      margin: 0 auto;
+    }
+
+    @font-face {
+      font-family: 'Bender';
+      src: url('src/assets/bender.light.otf') format('truetype');
+    }
+
+    /* CSS for the logo */
+    .logo {
+      display: flex;
+      align-items: center;
+      margin: 0 auto;
+    }
+
+    .logo img {
+      height: 50px;
+      width: auto;
+      margin-right: 10px;
+    }
+
+    .logo h1 {
+      font-size: 24px;
+      margin: 0;
+    }
+
+    /* CSS for the navigation links */
+    .nav-links {
+      display: flex;
+    }
+
+    .nav-links a {
+      font-family: 'Bender';
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    /* CSS for the icon buttons */
+    .icon-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #131741;
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-left: 10px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .icon-button:hover {
+      background-color: #262f83;
+    }
+
+    .Play {}
+
+    .User {}
+
+    .Settings {}
+
+    .Server {}
+  </style>
+</head>
+<body style="background-color:#262f83;">
+  <nav class="nav">
+    <div class="logo">
+      <img src="src/assets/MTGA.png" alt="Logo" width="200" height="200">
+    </div>
+    <div class="nav-links">
+      <div class="icon-button Play"><i class="fas fa-play"></i></div>
+      <div class="icon-button"><i class="fas fa-user User"></i></div>
+      <div class="icon-button Settings"><i class="fas fa-gear"></i></div>
+      <div class="icon-button Server"><i class="fas fa-server"></i></div>
+    </div>
+  </nav>
+  <!-- You need to include Font Awesome library to use these icons, you can find it here: https://fontawesome.com/ -->
+  <script src="https://kit.fontawesome.com/71edd74ab2.js" crossorigin="anonymous"></script>
+  <head>
+    <title>Login Form</title>
+    <style>
+      /* CSS for the login form */
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: #262f83;
+        font-family: 'Bender', sans-serif;
+        color: rgb(255, 255, 255);
+        padding: 20px;
+        width: 300px;
+        margin: 0 auto;
+        margin-top: 0px;
+        border-radius: 10px;
+      }
+
+      h1 {
+        font-size: 18px;
+        margin-bottom:3px;
+}
+input[type="text"], input[type="password"] {
+    background-color: #171c4f;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    width: 100%;
+  }
+
+  input[type="button"] {
+    background-color: #2f3a9e;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    width: 100%;
+    font-family: 'Bender', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  a:link {
+      color: #ff0000;
+}
+a:visited {
+  color: #ff0000;
+}
+
+  input[type="submit"]:hover {
+    background-color: #131741;
+  }
+
+  label {
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+  <form>
+    <h1>Restricted</h1>
+    <label for="h1">Login to contuine.</label>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" placeholder="Enter username...">
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" placeholder="Enter password...">
+    <div class="signup-link">
+      No account? <a href="http://localhost:1420/src/assets/register.html">Sign up nerd</a>
+    </div>
+    <input type="button" value="Login" id="login">
+  </form>
+</body>
+</html>

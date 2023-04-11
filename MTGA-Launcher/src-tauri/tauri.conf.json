@@ -1,13 +1,13 @@
 {
   "build": {
-    "beforeDevCommand": "",
-    "beforeBuildCommand": "",
-    "devPath": "../src",
-    "distDir": "../src",
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devPath": "http://localhost:1420",
+    "distDir": "../dist",
     "withGlobalTauri": true
   },
   "package": {
-    "productName": "MTGA Launcher",
+    "productName": "mtga-launcher",
     "version": "0.0.0"
   },
   "tauri": {
@@ -33,9 +33,13 @@
     "bundle": {
       "active": true,
       "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tauri.dev",
+      "identifier": "com.mtga.launcher",
       "targets": "all"
     },
     "security": {
@@ -47,10 +51,10 @@
     "windows": [
       {
         "fullscreen": false,
-        "resizable": false,
-        "title": "MTGA-Launcher",
-        "width": 500,
-        "height": 400
+        "resizable": true,
+        "title": "MTGA Launcher",
+        "width": 700,
+        "height": 686 
       }
     ]
   }
