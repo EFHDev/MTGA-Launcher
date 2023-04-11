@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://cdn.tauri.studio/tooltip.css" />
+<script src="https://cdn.tauri.studio/tooltip.js"></script>
+<html>
+  <head>
+    <style>
+      /* CSS for the navigation bar */
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #171c4f;
+        color: white;
+        padding: 20px;
+      }
+      @font-face {
+    font-family: 'Bender';
+    src: url('assets/bender.light.otf') format('truetype');
+  }
+
+  /* CSS for the logo */
+  .logo {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  .logo img {
+    height: 50px;
+    margin-right: 10px;
+  }
+
+  .logo h1 {
+    font-size: 24px;
+    margin: 0;
+  }
+
+  /* CSS for the navigation links */
+  .nav-links {
+    display: flex;
+  }
+
+  .nav-links a {
+    font-family: 'Bender';
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+
+  /* CSS for the icon buttons */
+  .icon-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #131741;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 10px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .icon-button:hover {
+    background-color: #777;
+  }
+
+  .Play {}
+
+  .User {}
+
+  .Settings {}
+
+  .Server {}
+</style>
+<title>Escape From Tarkov Offline Emulator - It's going to be great</title>
+</head>
+<body style="background-color:#262f83;">
+    <nav class="nav">
+      <div class="logo">
+        <img src="assets/MTGA.png" alt="Logo">
+      </div>
+      <div class="nav-links">
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+            <div class="icon-button"><i class="fab fa-discord"></i></div>
+        </a>
+        <div class="icon-button"><i class="fas fa-play" id="loginbtn" tauri-tooltip="Login &amp; Play"></i></div>
+      </div>
+    </nav>
+    
+    <script>
+      document.getElementById('loginbtn').addEventListener('click', function() {
+        alert("sex")
+        tauri.promisified({ cmd: 'navigate', message: { to: 'http://127.0.0.1:1430/login.html' } })
+        .then(function(response) {
+          console.log(response);
+        })
+        .catch(function(error) {
+          console.error(error);
+        });
+      });
+    </script>
+  </body>
+</html>
