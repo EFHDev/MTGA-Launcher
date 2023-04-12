@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <title>MTGA Launcher</title>
   <link rel="stylesheet" type="text/css" href="css/main.css">
+  <script type="module" src="/src/launch.js" defer></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <script type="module" src="/src/launch.js" defer></script>
 </head>
+
 <body style="background-color:#262f83;">
   <nav class="sidebar">
     <ul>
-      <li><a href="#"><i class="fas fa-home"></i></a></li>
-      <li><a href="#"><i class="fas fa-user"></i></a></li>
-      <li><a href="#"><i class="fas fa-cog"></i></a></li>
-      <li><a href="#"><i class="fas fa-server"></i></a></li>
-      <li><a href="#"><i class="fab fa-discord"></i></a></li>
+      <li><a href="http://localhost:1420/src/assets/no.html" title="Home"><i class="fas fa-home"></i></a></li>
+      <li><a href="http://localhost:1420/src/assets/notdone.html" title="Profile Options"><i class="fas fa-user"></i></a></li>
+      <li><a href="http://localhost:1420/src/assets/notdone.html" title="Settings"><i class="fas fa-cog"></i></a></li>
+      <li><a href="http://localhost:1420" title="Switch Profiles"><i class="fa-solid fa-right-from-bracket"></i></a></li>
+      <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" title="Join Discord"><i class="fab fa-discord"></i></a></li>
     </ul>
     <div class="logo">
       <img src="MTGA.png" alt="Logo">
@@ -26,43 +29,67 @@
       <!-- Greeting box -->
       <div id="greeting-box"></div>
     </header>
-<main class="main">
-  <div class="news">
-    <h2>Latest News</h2>
-    <div class="article">
-      <h3>Important Announcement.</h3>
-      <p>We're excited to announce that MTGA will be launching a new update on April 15th! The update will include new features and improvements to enhance your gaming experience. Stay tuned for more details!</p>
+    <main class="main">
+      <div class="news">
+        <h2>Latest News</h2>
+        <div class="article">
+          <h3>Important Announcement.</h3>
+          <p>We're excited to announce that MTGA will be launching a new update on April 15th! The update will include
+            new features and improvements to enhance your gaming experience. Stay tuned for more details!</p>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div class="footer"></div>
+    <div class="progress-bar-container">
+      <div class="progress-bar"></div>
     </div>
-  </div>
-  <input type="button" value="Login" id="launch-game-button">
-</main>
-  </div>
-  <script>
+    <div title="" id="bottombackground"></div>
+    <button id="launch-game-button">Launch Game</button>
+    <div title="Sex" id="xp-needed">XP Needed to reach next level</div>
+    <div title="Current Level" id="levelnow">thisgetsautofilled?</div>
+    <div title="Next Level" id="levelnext">lolwut?</div>  
+  <script type="module">
+    import { experience, userlevel, levels } from '../launch.js';
     var currentHour = new Date().getHours();
     var nickname = localStorage.getItem("Nickname");
-var firstChar = nickname.charAt(0);
-var capitalizedFirstChar = firstChar.toUpperCase();
-var capitalizedNickname = capitalizedFirstChar + nickname.slice(1);
-var morningGreeting = `Good morning ${capitalizedNickname}!`;
-var afternoonGreeting = `Good afternoon ${capitalizedNickname}!`;
-var eveningGreeting = `Good evening ${capitalizedNickname}!`;
-
-// Select greeting based on the current hour
-var greeting = "";
-if (currentHour >= 5 && currentHour < 12) {
-  greeting = morningGreeting;
-} else if (currentHour >= 12 && currentHour < 18) {
-  greeting = afternoonGreeting;
-} else {
-  greeting = eveningGreeting;
-}
-var greetingBox = document.getElementById("greeting-box");
-greetingBox.innerText = greeting;
-
-var loginBtn = document.getElementById("login");
-loginBtn.addEventListener("click", function () {
-
-});
-</script>
+    var firstChar = nickname.charAt(0);
+    var capitalizedFirstChar = firstChar.toUpperCase();
+    var capitalizedNickname = capitalizedFirstChar + nickname.slice(1);
+    var morningGreeting = `Good morning ${capitalizedNickname}!`;
+    var afternoonGreeting = `Good afternoon ${capitalizedNickname}!`;
+    var eveningGreeting = `Good evening ${capitalizedNickname}!`;
+  
+    // Select greeting based on the current hour
+    var greeting = "";
+    if (currentHour >= 5 && currentHour < 12) {
+      greeting = morningGreeting;
+    } else if (currentHour >= 12 && currentHour < 18) {
+      greeting = afternoonGreeting;
+    } else {
+      greeting = eveningGreeting;
+    }
+    var greetingBox = document.getElementById("greeting-box");
+    greetingBox.innerText = greeting;
+  
+    var progressBar = document.querySelector(".progress-bar");
+    const userLevel = +localStorage.getItem("Level")
+    const userExp = experience
+    const nextLevelExp = levels[userLevel + 1]
+  
+    // Calculate the percent progress towards the next level
+    const percentProgress = (userExp / nextLevelExp) * 100;
+    console.log(`${percentProgress}%`)
+  
+    var progress = percentProgress; // 
+    progressBar.style.width = progress + "%";
+    const xpLabel = document.querySelector("#xp-needed");
+    xpLabel.innerText = `${userExp} XP / ${nextLevelExp} XP`;
+    const levelNow = document.querySelector("#levelnow");
+    levelNow.innerText = `${userLevel}`;
+    const levelNext = document.querySelector("#levelnext");
+    levelNext.innerText = `${userLevel + 1}`;
+  </script>
 </body>
+
 </html>

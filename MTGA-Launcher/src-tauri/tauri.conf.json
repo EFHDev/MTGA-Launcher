@@ -29,8 +29,17 @@
         "all": true
       },
       "shell": {
-        "all": false,
-        "open": true
+        "all": true,
+        "scope": [
+          {
+            "name": "npm",
+            "cmd": "npm start",
+            "args": ["start"]
+          }
+        ],
+        "open": true,
+        "execute": true
+
       }
     },
     "bundle": {
@@ -54,10 +63,10 @@
     "windows": [
       {
         "fullscreen": false,
-        "resizable": true,
+        "resizable": false,
         "title": "MTGA Launcher",
-        "width": 700,
-        "height": 686 
+        "width": 647,
+        "height": 444 
       }
     ]
   }

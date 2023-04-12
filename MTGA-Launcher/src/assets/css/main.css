@@ -89,8 +89,12 @@ font-family: Bender;
   
   .launch-game-button {
     background-color: #1b225d;
+    position:absolute;
+    bottom: 1vh;
+    top: 92.6vh;
+    left: 15vh;
     color: white;
-    padding: 10px 120px;
+    padding: 8px 50px;
     border: none;
     border-radius: 5px;
     font-family: 'Bender';
@@ -127,4 +131,76 @@ font-family: Bender;
     color: #ffffff;
     line-height: 1.5;
   }
+  .progress-bar-container {
+    position:absolute;
+    bottom: 1vh;
+    top: 94vh;
+    left: 70vh;
+    right: 1vh;
+    display: flex;
+    align-items: center;
+    width: 300px;
+    height: 25px;
+    background-color: #313131;
+    border-radius: 10px;
+  }
+
+  .progress-bar {
+    width: 0%;
+    height: 100%;
+    background-color: #000000;
+    border-radius: 10px;
+    transition: width 0.5s;
+  }
+
+  #bottombackground {
+    background-color: #171c4f;
+    position: absolute;
+    height: 50px;
+    top: 394px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+  #xp-needed {
+    position:absolute;
+    bottom: 1vh;
+    top: 94.6vh;
+    text-decoration: underline;
+    font-size: 100%;
+    left: 82.7vh;
+    opacity: 50%;
+    right: 1vh;
+    background-color: #171717;
+    color:rgb(255, 255, 255);
+    background-blend-mode:exclusion;
+  }
+
+  #levelnext {
+    position:absolute;
+    bottom: 1vh;
+    top: 94.6vh;
+    text-decoration:wavy;
+    font-size: 125%;
+    left: 138.5vh;
+    opacity: 100%;
+    right: 1vh;
+    color:gold
+  }
+
+  #levelnow {
+    position:absolute;
+    bottom: 1vh;
+    top: 94.6vh;
+    text-decoration: wavy;
+    font-size: 125%;
+    left: 64vh;
+    opacity: 50%;
+    right: 1vh;
+    color:white
+  }
   
+  #footer {
+    background-color: #1b225d;
+  }

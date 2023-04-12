@@ -1,10 +1,21 @@
 import { open } from '@tauri-apps/api/dialog';
 import { appConfigDir } from '@tauri-apps/api/path';
+const response = await fetch('./levels.json', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+  })
+});
+  const responseBody = await response.json();
+  export const levels = responseBody
+  console.log(responseBody);
 import * as fs from 'fs';
 const sessionID = localStorage.getItem("SessionID")
 const serveraddress = "127.0.0.1:42069"
-
-
+export const experience = localStorage.getItem("Experience");
+export const userlevel = localStorage.getItem("level")
 
 
 
