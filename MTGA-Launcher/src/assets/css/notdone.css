@@ -1,0 +1,25 @@
+#ohno {
+    position: absolute;
+    left: 280px;
+}
+
+#flavour {
+    position: absolute;
+    bottom: 300px;
+    left: 67px;
+    font-size: large;
+}
+
+#flavour2 {
+    position: absolute;
+    bottom: 250px;
+    left: 135px;
+    font-size: large;
+}
+
+#home404 {
+    position: absolute;
+    bottom: 190px;
+    left: 310px;
+    font-size: 300%;
+}

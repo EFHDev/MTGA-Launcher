@@ -32,9 +32,9 @@
         "all": true,
         "scope": [
           {
-            "name": "npm",
-            "cmd": "npm start",
-            "args": ["start"]
+            "name": "node",
+            "cmd": "node",
+            "args": ["pathToServer", "cmd"]
           }
         ],
         "open": true,

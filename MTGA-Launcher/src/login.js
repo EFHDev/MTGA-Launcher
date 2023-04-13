@@ -1,17 +1,11 @@
-import CryptoJS from 'crypto-js';
-const errorDiv = document.querySelector(".error");
-
-
-
-
 async function login() {
   const username = document.getElementById("username").value;
-  const rawpassword = document.getElementById("password").value;
-  const salt = "MTGA____"
-  const seasonedmeat = salt + rawpassword 
-  const hashedPassword = CryptoJS.SHA256(seasonedmeat).toString();
-  console.log(hashedPassword); // $2a$10$U6lk0...
-  const response = await fetch('https://127.0.0.1:42069/launcher/account/login', {
+  const password = document.getElementById("password").value;
+
+  const hashedPassword = await sha256(password); // hash password with SHA-256
+  console.log(hashedPassword)
+
+  const response = await fetch('https://127.0.0.1:42069/tauri/account/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -21,9 +15,9 @@ async function login() {
       password: hashedPassword
     })
   });
-  const responseBody = await response.json();
   
-  if (responseBody.correct) {
+  if (response.headers.get("content-type").includes("application/json")) {
+    const responseBody = await response.json();
     console.log(responseBody.sessionID);
     alert('Login successful!');
     var expirationDate = new Date();
@@ -35,14 +29,26 @@ async function login() {
     localStorage.setItem("Experience", `${responseBody.experience}`);
     window.location.replace(`http://localhost:1420/src/assets/no.html`)
     return false; // prevent default form submission behavior
-  } else if(responseBody.invalid){
-    alert('Incorrect Password or Username');
-    console.log("naw") 
+  } else if(response.headers.get("content-type").includes("text/html")){
+    const responseText = await response.text();
+    if(responseText.includes("INVALID_CREDENTIALS")) {
+      alert('Incorrect Password or Username');
+      console.log("naw") 
+    }
   }
 }
- async function loggedIn(sessionID, username) {
+
+async function sha256(message) {
+  const msgBuffer = new TextEncoder().encode(message);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+async function loggedIn(sessionID, username) {
   return;
- }
+}
+
 window.addEventListener("DOMContentLoaded", () => {
   document.getElementById('login').addEventListener("click", () => login());
 });

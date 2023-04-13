@@ -1,12 +1,8 @@
-import CryptoJS from 'crypto-js';
 const errorDiv = document.querySelector(".error");
-
 async function register() {
-  const username = document.getElementById("username").value;
-  const rawpassword = document.getElementById("password").value;
-  const hashedPassword = CryptoJS.SHA256(rawpassword).toString();
+  const username = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
   const edition = document.getElementById("edition").value;
-  console.log(hashedPassword); // $2a$10$U6lk0...
   const response = await fetch('https://127.0.0.1:42069/launcher/account/register', {
     method: 'POST',
     headers: {
@@ -14,7 +10,7 @@ async function register() {
     },
     body: JSON.stringify({
       email: username,
-      password: hashedPassword,
+      password: password,
       edition: edition
     })
   });
@@ -36,6 +32,6 @@ async function register() {
  async function loggedIn(sessionID, username) {
   return;
  }
-window.addEventListener("DOMContentLoaded", () => {
-  document.getElementById('login').addEventListener("click", () => register());
+ window.addEventListener("DOMContentLoaded", () => {
+  document.getElementById('registerbtn').addEventListener("click", () => register());
 });
