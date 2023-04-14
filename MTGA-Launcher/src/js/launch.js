@@ -1,17 +1,6 @@
-import { open, ask } from '@tauri-apps/api/dialog';
-import { appConfigDir } from '@tauri-apps/api/path';
-import * as fs from 'fs';
-
-const response = await fetch('./levels.json', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({})
-});
-const responseBody = await response.json();
-export const levels = responseBody;
-console.log(responseBody);
+import { levels } from "./levels";
+import { ask, open } from '@tauri-apps/api/dialog';
+export const level = levels
 
 const sessionID = localStorage.getItem("SessionID");
 const serveraddress = "127.0.0.1:42069";
@@ -28,10 +17,12 @@ async function login() {
     else{
     localStorage.setItem("Agreed", true);
     launch();
+    return;
   }
 }
 else {
   launch();
+  return
 }
 }
 
@@ -79,6 +70,9 @@ async function launch() {
 
 const launchGameButton = document.getElementById("launch-game-button");
 
-launchGameButton.addEventListener("click", function () {
-  login();
-});
+if (launchGameButton.dataset.listener !== 'true') {
+  launchGameButton.dataset.listener = 'true';
+  launchGameButton.addEventListener("click", function () {
+    login();
+  });
+}

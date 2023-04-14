@@ -15,7 +15,7 @@ async function login() {
       password: hashedPassword
     })
   });
-  
+
   if (response.headers.get("content-type").includes("application/json")) {
     const responseBody = await response.json();
     console.log(responseBody.sessionID);
@@ -27,13 +27,13 @@ async function login() {
     localStorage.setItem("Level", `${responseBody.level}`);
     localStorage.setItem("Side", `${responseBody.side}`);
     localStorage.setItem("Experience", `${responseBody.experience}`);
-    window.location.replace(`http://localhost:1420/src/assets/no.html`)
+    window.location.replace("/src/no.html")
     return false; // prevent default form submission behavior
-  } else if(response.headers.get("content-type").includes("text/html")){
+  } else if (response.headers.get("content-type").includes("text/html")) {
     const responseText = await response.text();
-    if(responseText.includes("INVALID_CREDENTIALS")) {
+    if (responseText.includes("INVALID_CREDENTIALS")) {
       alert('Incorrect Password or Username');
-      console.log("naw") 
+      console.log("naw")
     }
   }
 }
@@ -52,3 +52,17 @@ async function loggedIn(sessionID, username) {
 window.addEventListener("DOMContentLoaded", () => {
   document.getElementById('login').addEventListener("click", () => login());
 });
+//Make the login button become "Switch Profiles" if !SessionID @ localstorage
+if (localStorage.getItem("SessionID") != undefined) {
+  const signup = document.getElementById("signup")
+  const restrictedtext = document.getElementById("restricted")
+  const restrictedlabel1 = document.getElementById("restrictedh1")
+  const restrictedlabel2 = document.getElementById("label2")
+  const signupa = document.getElementById("signupa")
+  const loginbtn = document.getElementById("login");
+  loginbtn.value = "Switch Profiles"
+  restrictedtext.textContent = "Switch Profiles"
+  restrictedlabel1.textContent = ""
+  restrictedlabel2.textContent = "You will stay logged into this new account until you switch again."
+  signup.innerHTML = 'Want a new profile? <a href="/src/register.html">Make one nerd</a>';
+}

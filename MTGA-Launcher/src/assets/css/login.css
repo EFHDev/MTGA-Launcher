@@ -43,6 +43,11 @@
         font-size: 16px;
         cursor: pointer;
     }
+    #label2 {
+        position: relative;
+        top: -7px;
+        font-size: 80%;
+    }
 
     a:link {
         color: #ff0000;

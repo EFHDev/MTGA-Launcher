@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script type="module" src="/src/login.js" defer></script>
-  <script type="module" src="/src/main.js" defer></script>
-  <title>Navigation Sidebar</title>
+  <script type="module" src="/src/js/login.js" defer></script>
+  <script type="module" src="/src/js/main.js" defer></script>
+  <title>Login</title>
   <link rel="stylesheet" type="text/css" href="src/assets/css/login.css">
-  <link rel="stylesheet" type="text/css" href="src/styles.css">
+  <link rel="stylesheet" type="text/css" href="src/assets/css/styles.css">
 </head>
 <body style="background-color:#262f83;">
   <nav class="sidebar">
     <ul>
-      <li><a href="http://localhost:1420/src/assets/no.html" title="Home"><i class="fas fa-home"></i></a></li>
-      <li><a href="http://localhost:1420/src/assets/notdone.html" title="Profile Options"><i class="fas fa-user"></i></a></li>
-      <li><a href="http://localhost:1420/src/assets/notdone.html" title="Settings"><i class="fas fa-cog"></i></a></li>
-      <li><a href="http://localhost:1420" title="Switch Profiles"><i class="fa-solid fa-right-from-bracket"></i></a></li>
+      <li><a href="/src/no.html" title="Home" id="home"><i class="fas fa-home"></i></a></li>
+      <li><a href="/src/notdone.html" title="Profile Options" id="profileopt"><i class="fas fa-user"></i></a></li>
+      <li><a href="/src/notdone.html" title="Settings"><i class="fas fa-cog"></i></a></li>
+      <li><a href="/index.html" title="Switch Profiles" id="switchprofile"><i class="fa-solid fa-right-from-bracket"></i></a></li>
       <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" title="Join Discord" target="_blank"><i class="fab fa-discord"></i></a></li>
     </ul>
     <div class="logo">
-      <img src="MTGA.png" alt="Logo">
+      <img src="src/assets/MTGA.png" alt="Logo">
     </div>
     <a href="#" class="close-nav" title="Toggle Navigation"><i class="fas fa-arrow-left"></i></a>
   </nav>
@@ -29,14 +29,15 @@
 </head>
 <body>
   <form>
-    <h1>Restricted</h1>
-    <label for="h1">Login to contuine.</label>
+    <h1 id="restricted">Restricted</h1>
+    <label for="h1" id="restrictedh1">Login to contuine.</label>
+    <label for="h1" id="label2" id="restrictedh2">Once you login, you will stay logged in until you click "Switch Profiles".</label>
     <label for="username">Username:</label>
     <input type="text" id="username" name="username" placeholder="Enter username...">
     <label for="password">Password:</label>
     <input type="password" id="password" name="password" placeholder="Enter password...">
-    <div class="signup-link">
-      No account? <a href="http://localhost:1420/src/assets/register.html">Sign up nerd</a>
+    <div class="signup-link" id="signup">
+      No account? <a id="signupA" href="/src/register.html">Sign up nerd</a>
     </div>
     <input type="button" value="Login" id="login">
   </form>

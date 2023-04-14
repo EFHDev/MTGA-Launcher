@@ -4,24 +4,24 @@
 <head>
   <meta charset="UTF-8">
   <title>MTGA Launcher</title>
-  <link rel="stylesheet" type="text/css" href="css/main.css">
-  <link rel="stylesheet" type="text/css" href="../styles.css">
-  <script type="module" src="/src/main.js" defer></script>
+  <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
+  <script type="module" src="./js/main.js" defer></script>
+  <script type="module" src="./js/launch.js" defer></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <script type="module" src="/src/launch.js" defer></script>
 </head>
 
 <body style="background-color:#262f83;">
   <nav class="sidebar">
     <ul>
-      <li><a href="http://localhost:1420/src/assets/no.html" title="Home"><i class="fas fa-home"></i></a></li>
-      <li><a href="http://localhost:1420/src/assets/notdone.html" title="Profile Options"><i class="fas fa-user"></i></a></li>
-      <li><a href="http://localhost:1420/src/assets/notdone.html" title="Settings"><i class="fas fa-cog"></i></a></li>
-      <li><a href="http://localhost:1420" title="Switch Profiles"><i class="fa-solid fa-right-from-bracket"></i></a></li>
+      <li><a href="/src/no.html" title="Home" id="home"><i class="fas fa-home"></i></a></li>
+      <li><a href="/src/notdone.html" title="Profile Options" id="profileopt"><i class="fas fa-user"></i></a></li>
+      <li><a href="/src/notdone.html" title="Settings"><i class="fas fa-cog"></i></a></li>
+      <li><a href="/index.html" title="Switch Profiles" id="switchprofile"><i class="fa-solid fa-right-from-bracket"></i></a></li>
       <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" title="Join Discord" target="_blank"><i class="fab fa-discord"></i></a></li>
     </ul>
     <div class="logo">
-      <img src="MTGA.png" alt="Logo">
+      <img src="assets/MTGA.png" alt="Logo">
     </div>
     <a href="#" class="close-nav" title="Toggle Navigation"><i class="fas fa-arrow-left"></i></a>
   </nav>
@@ -33,26 +33,25 @@
     </header>
     <main class="main">
       <div class="news">
-        <h2>Latest News</h2>
+        <h2>Make Tarkov Great Again</h2>
         <div class="article">
-          <h3>Important Announcement.</h3>
-          <p>We're excited to announce that MTGA will be launching a new update on April 15th! The update will include
-            new features and improvements to enhance your gaming experience. Stay tuned for more details!</p>
+          <p>Its going to be great
+            Nikita will cry</p>
         </div>
       </div>
     </main>
   </div>
   <div class="footer"></div>
-    <div class="progress-bar-container">
-      <div class="progress-bar"></div>
-    </div>
-    <div title="" id="bottombackground"></div>
-    <button id="launch-game-button">Launch Game</button>
-    <div title="Sex" id="xp-needed">XP Needed to reach next level</div>
-    <div title="Current Level" id="levelnow">thisgetsautofilled?</div>
-    <div title="Next Level" id="levelnext">lolwut?</div>  
+  <div class="progress-bar-container">
+    <div class="progress-bar"></div>
+  </div>
+  <div title="" id="bottombackground"></div>
+  <button id="launch-game-button">Launch Game</button>
+  <div title="Sex" id="xp-needed">XP Needed to reach next level</div>
+  <div title="Current Level" id="levelnow">thisgetsautofilled?</div>
+  <div title="Next Level" id="levelnext">lolwut?</div>
   <script type="module">
-    import { experience, userlevel, levels } from '../launch.js';
+    import { experience, userlevel, level } from "./js/launch.js";
     var currentHour = new Date().getHours();
     var nickname = localStorage.getItem("Nickname");
     var firstChar = nickname.charAt(0);
@@ -61,7 +60,7 @@
     var morningGreeting = `Good morning ${capitalizedNickname}!`;
     var afternoonGreeting = `Good afternoon ${capitalizedNickname}!`;
     var eveningGreeting = `Good evening ${capitalizedNickname}!`;
-  
+
     // Select greeting based on the current hour
     var greeting = "";
     if (currentHour >= 5 && currentHour < 12) {
@@ -73,16 +72,20 @@
     }
     var greetingBox = document.getElementById("greeting-box");
     greetingBox.innerText = greeting;
-  
+
     var progressBar = document.querySelector(".progress-bar");
     const userLevel = +localStorage.getItem("Level")
     const userExp = experience
-    const nextLevelExp = levels[userLevel + 1]
-  
+    console.log(level)
+    console.log(userLevel)
+    console.log("sex " + level[0][9])
+    const nextLevelExp = level[0][userLevel + 1]
+    console.log(nextLevelExp)
+
     // Calculate the percent progress towards the next level
     const percentProgress = (userExp / nextLevelExp) * 100;
     console.log(`${percentProgress}%`)
-  
+
     var progress = percentProgress; // 
     progressBar.style.width = progress + "%";
     const xpLabel = document.querySelector("#xp-needed");

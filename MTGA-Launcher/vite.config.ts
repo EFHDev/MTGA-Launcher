@@ -1,4 +1,5 @@
-import { defineConfig } from "vite";
+import { resolve } from 'path'
+import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig(async () => ({
@@ -20,5 +21,29 @@ export default defineConfig(async () => ({
     minify: !process.env.TAURI_DEBUG ? "esbuild" : false,
     // produce sourcemaps for debug builds
     sourcemap: !!process.env.TAURI_DEBUG,
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        no: resolve(__dirname, 'src/no.html'),
+        notdonehtml: resolve(__dirname, 'src/notdone.html'),
+        registerhtml: resolve(__dirname, 'src/register.html'),
+        styles: resolve(__dirname, 'src/assets/css/styles.css'),
+        benderlight: resolve(__dirname, 'src/assets/bender.light.otf'),
+        levels: resolve(__dirname, 'src/js/levels.js'),
+        MTGA: resolve(__dirname, 'src/assets/MTGA.png'),
+        vite: resolve(__dirname, 'src/assets/vite.svg'),
+        logincss: resolve(__dirname, 'src/assets/css/login.css'),
+        maincss: resolve(__dirname, 'src/assets/css/main.css'),
+        notdone: resolve(__dirname, 'src/assets/css/notdone.css'),
+        registercss: resolve(__dirname, 'src/assets/css/register.css'),
+        launch: resolve(__dirname, 'src/js/launch.js'),
+        loginjs: resolve(__dirname, 'src/js/login.js'),
+        mainjs: resolve(__dirname, 'src/js/main.js'),
+        registerjs: resolve(__dirname, 'src/js/register.js')
+
+      },
+    },
   },
-}));
+})
+  ,
+);
