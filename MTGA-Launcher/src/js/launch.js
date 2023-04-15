@@ -45,7 +45,7 @@ async function launch() {
   }
 
   const tarkovPath = localStorage.getItem("tarkovPath");
-  const response = await fetch('https://127.0.0.1:42069/launcher/start', {
+  const response = await fetch('https://127.0.0.1:42069/tauri/launcher/start', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

@@ -8,7 +8,7 @@ async function register() {
   const password = document.getElementById("password").value;
   const hashedPassword = await sha256(password);
   const edition = document.getElementById("edition").value;
-  const response = await fetch('https://127.0.0.1:42069/launcher/account/register', {
+  const response = await fetch('https://127.0.0.1:42069/tauri/account/register', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
