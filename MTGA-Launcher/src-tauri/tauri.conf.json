@@ -65,8 +65,8 @@
         "fullscreen": false,
         "resizable": false,
         "title": "MTGA Launcher",
-        "width": 647,
-        "height": 444 
+        "width": 700,
+        "height": 500 
       }
     ]
   }

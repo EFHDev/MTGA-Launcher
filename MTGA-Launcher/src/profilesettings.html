@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Profile Options</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/profilesettings.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
+    <script type="module" src="/src/js/main.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script type="module" src="/src/js/launch.js" defer></script>
+</head>
+<body style="background-color:#262f83;">
+    <nav class="sidebar">
+      <ul>
+        <li><a href="/src/no.html" title="Home" id="home"><i class="fas fa-home"></i></a></li>
+        <li><a href="/src/notdone.html" title="Profile Options" id="profileopt"><i class="fas fa-user"></i></a></li>
+        <li><a href="/src/notdone.html" title="Settings"><i class="fas fa-cog"></i></a></li>
+        <li><a href="/index.html" title="Switch Profiles" id="switchprofile"><i class="fa-solid fa-right-from-bracket"></i></a></li>
+        <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" title="Join Discord" target="_blank"><i class="fab fa-discord"></i></a></li>
+      </ul>
+      <div class="logo">
+        <img src="assets\MTGA.png" alt="Logo">
+      </div>
+      <a href="#" class="close-nav" title="Toggle Navigation"><i class="fas fa-arrow-left"></i></a>
+    </nav>
+    <script src="https://kit.fontawesome.com/71edd74ab2.js" crossorigin="anonymous"></script>
+    <div class="container">
+        <h1 id ="po">Profile Options</h1>
+        <form>
+            <h3 id="changeusername">Change username</h3>
+            <h3 id="changepassword">Change Password</h3>
+            <div class="flex-parent-element">
+            <input type="text" class="flex-child-element" id="username" name="username"><br><br>
+            <input type="password" class = "flex-child-element" id="password" name="password"><br><br>
+        </div>
+            <label for="edition">Change Edition:</label>
+            <select id="edition" name="edition">
+              <option value="edge of darkness">Edge of Darkness</option>
+              <option value="Dev">Dev</option>
+            </select><br><br>
+            <label for="tarkovpath">Tarkov Path:</label>
+            <input type="text" id="tarkovpath" name="tarkovpath"><br><br>
+            <input type="button" value="Save Changes" id="profilesettings">
+        </form>
+    </div>
+</body>
+</html>

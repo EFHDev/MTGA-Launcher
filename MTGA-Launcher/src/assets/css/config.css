@@ -1,0 +1,105 @@
+body {
+    background-color: #2f3a9e;
+  }
+  
+  h1 {
+    color: white;
+  }
+  
+  #json-table {
+    border-bottom: 2px solid #fff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  #json-table th {
+    background-color: #171c4f;
+    color: white;
+    padding: 10px;
+  }
+  
+  #json-table td {
+    position: relative;
+    border-top: 2px solid white;
+    display: inline-table;
+    flex-direction: column;
+    padding: 2px;
+    margin-bottom: 5px;
+    bottom: 5px;
+  }
+  
+  #json-table label {
+    color: white;
+    margin-bottom: 0px;
+  }
+  
+  input[type="button"] {
+    background-color: #1b225d;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="string"],
+  
+  
+  button {
+    background-color: #1b225d;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    cursor: pointer;
+  }
+
+  label {
+    cursor: default;
+    font-size: 19px;
+    border-bottom: red;
+    border-radius: 5px;
+}
+
+#json-table a {
+color: white
+  }
+
+button #save-button {
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.floating-buttons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  #back-button {
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  
+  #save-button {
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 20px;
+  }

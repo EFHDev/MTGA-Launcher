@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="assets/css/config.css">
+<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+<script type="module" src="/src/js/main.js" defer></script>
+<script src="https://kit.fontawesome.com/71edd74ab2.js" crossorigin="anonymous"></script>
+
+<body>
+    <div class="floating-buttons">
+        <a id="back-button" class="fa-sharp fa-solid fa-arrow-left"></a>
+        <a id="save-button" class="fa fa-save"></a>
+    </div>
+    <h1 id="title">Config Editor</h1>
+    <div id="list-container">
+        <table id="json-table"></table>
+    </div>
+    <div id="edit-container">
+        <h2 id="edit-title"></h2>
+        <table id="edit-table"></table>
+    </div>
+    <nav class="sidebar">
+        <ul>
+            <li><a href="/src/no.html" title="Home" id="home"><i class="fas fa-home"></i></a></li>
+            <li><a href="/src/profilesettings.html" title="Profile Options" id="profileopt"><i
+                        class="fas fa-user"></i></a></li>
+            <li><a href="/src/notdone.html" title="Settings"><i class="fas fa-cog"></i></a></li>
+            <li><a href="/src/config.html" title="Config"><i class="fas fa-clipboard"></i></a></li>
+            <li><a href="/index.html" title="Switch Profiles" id="switchprofile"><i
+                        class="fa-solid fa-right-from-bracket"></i></a></li>
+            <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" title="Join Discord" target="_blank"><i
+                        class="fab fa-discord"></i></a></li>
+        </ul>
+        <div class="logo">
+            <img src="src/assets/MTGA.png" alt="Logo">
+        </div>
+        <a href="#" class="close-nav" title="Toggle Navigation"><i class="fas fa-arrow-left"></i></a>
+    </nav>
+
+    <script>
+        const sessionID = localStorage.getItem("SessionID");
+        const saveButton = document.getElementById('save-button');
+        saveButton.style.color = "red";
+        saveButton.disabled = true
+        fetch('https://127.0.0.1:42069/tauri/get/config', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ sessionID: sessionID })
+        })
+            .then(response => response.json())
+            .then(data => {
+                let obj = data;
+
+                const keys = Object.keys(obj);
+                const listContainer = document.getElementById('list-container');
+                const jsonTable = document.getElementById('json-table');
+                keys.forEach(key => {
+                    const row = jsonTable.insertRow();
+                    const cell = row.insertCell();
+                    const link = document.createElement('a');
+                    link.href = '#';
+                    link.textContent = key;
+                    link.addEventListener('click', () => {
+                        showEditPanel(key);
+                    });
+                    cell.appendChild(link);
+                });
+
+                function createTableCells(table, obj, title = null) {
+                    Object.entries(obj).forEach(([key, value]) => {
+                        if (key === 'ModInfo') { // hide ModInfo cell
+                            return;
+                        }
+                        const fixedKeyName = key.replaceAll("_", " ")
+                        const row = table.insertRow();
+                        const cell = row.insertCell();
+                        const label = document.createElement('label');
+                        label.for = key;
+                        label.textContent = fixedKeyName + ': ';
+                        cell.appendChild(label);
+
+                        if (typeof value === 'boolean') {
+                            const input = document.createElement('input');
+                            input.id = key;
+                            input.type = 'checkbox';
+                            input.checked = value;
+                            cell.appendChild(input);
+                            input.addEventListener('change', () => {
+                                obj[key] = input.checked;
+                                enableSaveButton();
+                            });
+                        } else {
+                            const input = document.createElement('input');
+                            input.id = key;
+                            input.type = typeof value;
+                            input.value = value;
+                            cell.appendChild(input);
+                            input.addEventListener('change', () => {
+                                obj[key] = input.type === 'number' ? Number(input.value) : input.value;
+                                enableSaveButton();
+                            });
+                        }
+                    });
+                    // add ModInfo label
+                    if (obj.ModInfo) {
+                        const ModInfo = obj.ModInfo;
+                        const modInfoLabel = document.createElement('label');
+                        modInfoLabel.textContent = `Generated by ${title} by ${ModInfo.Creator}:`;
+                        table.insertBefore(modInfoLabel, table.firstChild);
+
+                        const versionLabel = document.createElement('span');
+                        versionLabel.textContent = `Version: ${ModInfo.Version}`;
+                        const typeLabel = document.createElement('span');
+                        typeLabel.textContent = `Type: ${ModInfo.Type}`;
+                        const creatorLabel = document.createElement('span');
+                        typeLabel.style.marginBottom = "0px";
+                        creatorLabel.style.marginBottom = "0px";
+                        typeLabel.style.lineHeight = "0px";
+                        creatorLabel.style.lineHeight = "0px";
+
+                        const ModInfoLabel2 = document.createElement('label');
+                        ModInfoLabel2.setAttribute('for', 'modInfoLabel');
+                        ModInfoLabel2.style.fontSize = "12px"
+                        ModInfoLabel2.style.lineHeight = '0.1';
+                        ModInfoLabel2.appendChild(document.createElement('br'));
+                        ModInfoLabel2.appendChild(versionLabel);
+                        ModInfoLabel2.appendChild(document.createElement('br'));
+                        ModInfoLabel2.appendChild(typeLabel);
+
+                        table.insertBefore(ModInfoLabel2, modInfoLabel.nextElementSibling);
+
+                        if (obj.ModInfo.Type === 'AKI') { // add warning message
+                            const warning = document.createElement('div');
+                            warning.textContent = 'This is an AKI Mod, No support will be given!';
+                            warning.style.backgroundColor = "red"
+                            warning.style.borderRadius = "2px";
+                            warning.style.borderColor = "white";
+                            warning.style.color = 'white';
+                            warning.style.fontWeight = 'bold';
+                            warning.style.marginBottom = '10px';
+                            table.insertBefore(warning, modInfoLabel);
+                        }
+                    }
+                }
+                function showConfigList() {
+                    const editContainer = document.getElementById('edit-container');
+                    const listContainer = document.getElementById('list-container');
+                    const saveButton = document.getElementById('save-button');
+                    const saveButton2 = document.querySelector(".fa.fa-save");
+                    const warningMessage = document.getElementById('warning-message');
+
+                    editContainer.style.display = 'none';
+                    listContainer.style.display = 'block';
+
+
+                    // Remove any existing warning messages
+                    if (warningMessage) {
+                        warningMessage.remove();
+                    }
+
+                    // Check if any of the mod configs are AKI mods and display a warning message if so
+                    const keys = Object.keys(obj);
+                    let isAKIMod = false;
+                    keys.forEach(key => {
+                        if (obj[key]?.ModInfo?.Type === 'AKI') {
+                            isAKIMod = true;
+                        }
+                    });
+                }
+
+                function showEditPanel(key) {
+                    const editContainer = document.getElementById('edit-container');
+                    const editTitle = document.getElementById('edit-title');
+                    const editTable = document.getElementById('edit-table');
+                    const backButton = document.getElementById('back-button');
+                    const saveButton = document.getElementById('save-button');
+                    while (editTable.firstChild) {
+                        editTable.removeChild(editTable.firstChild);
+                    }
+                    editTitle.editTextContent = String.prototype.replace(key, "_", " ");
+                    const config = obj[key];
+                    createTableCells(editTable, config, key);
+                    backButton.addEventListener('click', () => {
+                        showConfigList();
+                    });
+                    saveButton.addEventListener('click', () => {
+                        saveChanges(key, config);
+                    });
+                    editContainer.style.display = 'block';
+                    listContainer.style.display = 'none';
+                }
+                function enableSaveButton() {
+                    const saveButton = document.getElementById('save-button');
+                    saveButton.disabled = false
+                    saveButton.style.color = "Green"
+                }
+                function saveChanges(key, config) {
+                    const saveButton = document.getElementById('save-button');
+                    saveButton.disabled = true;
+                    fetch('https://127.0.0.1:42069/tauri/update/config', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ sessionID: sessionID, key: key, config: config })
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data === "Success") {
+                                alert("Saved Successfully")
+                            }
+                            if (data === "NOT_EXIST") { //TODO: ACTUALLY MAKE THIS FUCKING WORK WHAT THE FUCK
+                                alert("This account doesnt exist.. what the fuck?")
+                            }
+                        })
+                        .catch(error => {
+                            console.error(error);
+                        });
+                    console.log(JSON.stringify(body))
+                }
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+
+</body>
+
+</html>

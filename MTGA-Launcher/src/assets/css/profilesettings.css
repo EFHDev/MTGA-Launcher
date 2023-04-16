@@ -1,0 +1,53 @@
+.flex-parent-element {
+    display: flex;
+    width: 100%;
+  }
+  
+  .flex-child-element {
+    flex: 1;
+    border: 2px solid blueviolet;
+    margin: 10px;
+  }
+  
+  .flex-child-element:first-child {
+    margin-right: 20px;
+  }
+
+#username,
+#password{
+    width: 500px;
+}
+#po {
+    margin-bottom: 60px;
+}
+#tarkovpath{
+    width: 650px;
+    margin-top: 20px;
+}
+
+#changepassword {
+    position: absolute;
+    left: 368px;
+    top: 80px;
+}
+#changeusername {
+    position: absolute;
+    top: 80px;
+    left: 18.5px;
+}
+label[for="edition"] {
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  
+  #edition {
+    font-size: 15px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #171c4f;
+    color: #ffffff;
+    width: 200px;
+    margin-bottom: 10px;
+  }
