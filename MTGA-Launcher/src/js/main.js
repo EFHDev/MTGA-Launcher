@@ -47,13 +47,13 @@ closeNav.addEventListener('mouseleave', function (e) {
   closeNav.classList.remove('hover');
 });
 
-export async function sha256(message) {
-  if (message === "") { return "" }
-  const msgBuffer = new TextEncoder().encode("MTGA__" + message);
-  const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-  const hashArray = Array.from(new Uint8Array(hashBuffer));
-  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-}
+//export async function sha256(message) {
+//  if (message === "") { return "" }
+//  const msgBuffer = new TextEncoder().encode("MTGA__" + message);
+//  const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+//  const hashArray = Array.from(new Uint8Array(hashBuffer));
+//  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+//}
 
 async function updateProfileData() {
   const SessionID = localStorage.getItem("SessionID")

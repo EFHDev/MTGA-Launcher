@@ -26,6 +26,15 @@ else {
 }
 }
 
+async function restart() {
+  const response = await fetch('https://127.0.0.1:42069/tauri/server/restart', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  });
+}
+
 async function launch() {
   if (!localStorage.getItem("tarkovPath")) {
     console.log("tarkovPath isnt defined!!! Opening select dialog!")
@@ -76,3 +85,11 @@ if (launchGameButton.dataset.listener !== 'true') {
     login();
   });
 }
+//const RestartServer = document.getElementById("restart-server-button");
+//
+//if (RestartServer.dataset.listener !== 'true') {
+//  RestartServer.dataset.listener = 'true';
+//  RestartServer.addEventListener("click", function () {
+//    restart();
+//  });
+//}

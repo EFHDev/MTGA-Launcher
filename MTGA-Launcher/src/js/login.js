@@ -2,8 +2,7 @@ async function login() {
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
 
-  const hashedPassword = await sha256(password); // hash password with SHA-256
-  console.log(hashedPassword)
+  //const hashedPassword = await sha256(password); // hash password with SHA-256
 
   const response = await fetch('https://127.0.0.1:42069/tauri/account/login', {
     method: 'POST',
@@ -12,7 +11,7 @@ async function login() {
     },
     body: JSON.stringify({
       email: username,
-      password: hashedPassword
+      password: password
     })
   });
 
