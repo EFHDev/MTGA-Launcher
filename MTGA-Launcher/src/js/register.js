@@ -1,4 +1,3 @@
-import { sha256 } from "./main";
 const errorDiv = document.querySelector(".error");
 
 
