@@ -1,3 +1,10 @@
+
+if (localStorage.getItem("SessionID") && !sessionStorage.getItem("AutoLogin")) {
+  sessionStorage.setItem("AutoLogin", "true")
+  alert("You were automaticly logged in. Have fun!")
+  window.location.replace("/src/no.html")
+}
+
 async function login() {
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
@@ -26,6 +33,7 @@ async function login() {
     localStorage.setItem("Level", `${responseBody.level}`);
     localStorage.setItem("Side", `${responseBody.side}`);
     localStorage.setItem("Experience", `${responseBody.experience}`);
+    localStorage.setItem("Edition", `${responseBody.edition}`);
     window.location.replace("/src/no.html")
     return false; // prevent default form submission behavior
   } else if (response.headers.get("content-type").includes("text/html")) {
