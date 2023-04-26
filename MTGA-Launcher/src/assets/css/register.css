@@ -27,8 +27,26 @@
               padding: 10px;
               border: 1px solid #ccc;
               border-radius: 5px;
-              margin-bottom: 20px;
+              margin-bottom: 10px;
               font-size: 16px;
+          }
+          #password {
+            width: 95%;
+            background-color: white;
+            color: black;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 0px;
+            font-size: 16px;
+          }
+          #psswdlbl {
+              display: block;
+              color: red;
+              font-size: 12px;
+              margin-bottom: 15px;
+              margin-top: 0;
+              font-weight: bold;
           }
   
           .registration-form button[type="button"] {

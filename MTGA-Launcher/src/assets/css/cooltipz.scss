@@ -1,0 +1,187 @@
+:root {
+	--cooltipz-fontawesome: FontAwesome;
+}
+
+.custom {
+	&--small {
+		--cooltipz-small: 4.5rem;
+	}
+
+	&--medium {
+		--cooltipz-medium: 8rem;
+	}
+
+	&--large {
+		--cooltipz-large: 12rem;
+	}
+
+	&--revert {
+		--cooltipz-bg-color: #fff;
+		--cooltipz-text-color: #000;
+		--cooltipz-border-color: #fff;
+	}
+
+	&--help {
+		--cooltipz-cursor: help;
+	}
+
+	&--delay {
+		--cooltipz-delay-show: 1s;
+		--cooltipz-delay-hide: 2s;
+	}
+
+	&--far {
+		--cooltipz-slide: 50px;
+	}
+
+	&--still {
+		--cooltipz-slide: 0;
+	}
+
+	&--opposite {
+		--cooltipz-slide: -50px;
+	}
+
+	&--big {
+		--cooltipz-font-size: 1.6rem;
+		--cooltipz-arrow-size: 1rem;
+	}
+
+	&--arrow {
+		--cooltipz-arrow-size: 1.5rem;
+		--cooltipz-border-radius: 0;
+	}
+
+	&--round {
+		--cooltipz-border-radius: 5rem;
+	}
+
+	&--sharp {
+		--cooltipz-border-radius: 0;
+	}
+
+	&--pointy {
+		--cooltipz-arrow-size: 0.82rem;
+		--cooltipz-border-radius: 0;
+	}
+
+	&--slow {
+		--cooltipz-timing: 3s;
+	}
+
+	&--border {
+		--cooltipz-border-color: #f00;
+		--cooltipz-border-width: 2px;
+
+		&-2 {
+			--cooltipz-border-color: #0f0;
+			--cooltipz-border-width: 2px;
+			--cooltipz-border-style: dashed;
+		}
+
+		&-3 {
+			--cooltipz-border-color: #000;
+			--cooltipz-border-width: 2px;
+			--cooltipz-text-color: #000;
+			--cooltipz-bg-color: #fff;
+		}
+	}
+}
+
+/* Nothing to do with Cooltipz.css, just making the examples look pretty */
+
+body {
+	min-height: 100%;
+	font-family: Verdana, Arial, sans-serif;
+	padding-bottom: 2rem;
+}
+
+body,
+main,
+section {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+main {
+	div {
+		margin: 2rem;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+}
+
+@keyframes octocat-wave {
+	0%,
+	100% {
+		transform: rotate(0);
+	}
+
+	20%,
+	60% {
+		transform: rotate(-25deg);
+	}
+
+	40%,
+	80% {
+		transform: rotate(10deg);
+	}
+}
+
+.github-corner {
+	&:hover {
+		.octo-arm {
+			animation: octocat-wave 560ms ease-in-out;
+		}
+	}
+
+	svg {
+		border: 0;
+		color: #fff;
+		fill: #151513;
+		left: 0;
+		position: absolute;
+		top: 0;
+		transform: scale(-1, 1);
+	}
+
+	.octo-arm {
+		transform-origin: 8.125rem 6.625rem;
+	}
+
+	&__wrapper {
+		display: block;
+		height: 5rem;
+		width: 5rem;
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		a,
+		svg {
+			height: 100%;
+			width: 100%;
+			display: block;
+		}
+	}
+}
+
+@media (max-width: 31.25em) {
+	.github-corner {
+		&:hover {
+			.octo-arm {
+				animation: none;
+			}
+		}
+
+		.octo-arm {
+			animation: octocat-wave 560ms ease-in-out;
+		}
+	}
+}

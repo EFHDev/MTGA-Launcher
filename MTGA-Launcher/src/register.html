@@ -2,13 +2,10 @@
 <html>
 
 <head>
-    <title>Escape From Tarkov Offline Emulator - It's going to be great</title>
     <link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/register.css">
 
     <script type="module" src="/src/js/main.js" defer></script>
-    <link rel="stylesheet" href="https://cdn.tauri.studio/tooltip.css" />
-    <script src="https://cdn.tauri.studio/tooltip.js"></script>
     <script src="https://kit.fontawesome.com/71edd74ab2.js" crossorigin="anonymous"></script>
     <script type="module" src="/src/js/register.js" defer></script>
 </head>
@@ -39,8 +36,11 @@
             <label for="email">Username</label>
             <input type="email" id="email" name="email" />
 
+            <div class="password">
             <label for="password">Password</label>
             <input type="password" id="password" name="password" />
+          </div>
+            <label for="password" id="psswdlbl">Do not use a password you use elsewere!</label>
 
             <div class="edition-dropdown">
                 <label for="edition">Select edition</label>
