@@ -2,7 +2,11 @@ body {
   color: white;
   font-family: Bender;
 }
-  
+
+#transitionable {
+  color: white;
+}
+
 a:link {
   color: #ff0000;
 }

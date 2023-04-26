@@ -1,4 +1,6 @@
-//NAVIGATION
+/* -------------------------------------------------------------------------- */
+/*                                NAVIGATION                                */
+/* -------------------------------------------------------------------------- */
 const sessionID = localStorage.getItem("SessionID");
 const nav = document.querySelector('.sidebar');
 const closeNav = document.querySelector('.close-nav');
@@ -28,6 +30,7 @@ if (!sessionID) {
 closeNav.addEventListener('click', function (e) {
   e.preventDefault();
   nav.classList.toggle('show');
+  [debugNav, icon, debugNav1, debugNav2, debugNav3, debugNav4].forEach(nav => nav.classList.remove('active'));
 });
 
 closeNav.addEventListener('mousemove', function (e) {
@@ -47,7 +50,11 @@ closeNav.addEventListener('mouseleave', function (e) {
   closeNav.classList.remove('hover');
 });
 
-//DEBUG NAVIGATION
+
+/* -------------------------------------------------------------------------- */
+/*                              DEBUG NAVIGATION                              */
+/* -------------------------------------------------------------------------- */
+const logo = document.querySelector('.logo')
 const DebugMode = localStorage.getItem("DebugMode");
 const debugNav = document.querySelector('#DebugNav')
 const debugNav1 = document.querySelector('#DebugNav1')
@@ -55,33 +62,51 @@ const debugNav2 = document.querySelector('#DebugNav2')
 const debugNav3 = document.querySelector('#DebugNav3')
 const debugNav4 = document.querySelector('#DebugNav4')
 const icon = document.querySelector('.sidebar li a i.fa-solid.fa-bug')
+/* -------------------------- DEBUG MODE ACTIVATION ------------------------- */
+let clicks = 0;
+logo.addEventListener('click', function (e) {
+  clicks += 1;
+  console.log("clicked!")
+  if (clicks == 1) {
+    setInterval(() => {
+      if(clicks <=  3 && !DebugMode){
+      debugActivationTimer();
+    }}, 1);
+}});
+
+function debugActivationTimer() {
+  const timeout = 200;
+  let now = Date.now();
+  let timer = now;
+  if (clicks !== 3 && timer != 200) {
+    timer += 1;
+  }
+  else if (clicks == 3) {
+    alert("Debug Mode Activated");
+    localStorage.setItem("DebugMode", true);
+    clicks = 0;
+    return
+  }
+  else {return}
+  
+
+}
 
 if(!DebugMode) {
-  const liElement = debugNav.parentNode;
-  liElement.parentNode.removeChild(liElement);
-  debugNav1.style.display = "none";
-  debugNav2.style.display = "none";
-  debugNav3.style.display = "none";
-  debugNav4.style.display = "none";
+  debugNav.parentElement.remove();
+  document.querySelectorAll(".transitionable").forEach(el => el.remove());
+  [icon, debugNav, debugNav1, debugNav2, debugNav3, debugNav4].forEach(nav => nav.style.display = "none");
   icon.style.display = "none";
 }
 
 debugNav.addEventListener('click', function (e) {
   if (!debugNav1.classList.contains('active') && !debugNav2.classList.contains('active')) {
 setTimeout(() => {     
-  icon.classList.add('active');
-  debugNav1.classList.add('active');
-  debugNav2.classList.add('active');
-  debugNav3.classList.add('active');
-  debugNav4.classList.add('active');
+  [icon, debugNav1, debugNav2, debugNav3, debugNav4].forEach(nav => nav.classList.add('active'));
 }, 300);
     debugNav.classList.add('active');
   } else {
-    icon.classList.remove('active');
-    debugNav1.classList.remove('active');
-    debugNav2.classList.remove('active');
-    debugNav3.classList.remove('active');
-    debugNav4.classList.remove('active');
+    [icon, debugNav1, debugNav2, debugNav3, debugNav4].forEach(nav => nav.classList.remove('active'));
     setTimeout(() => {     
       debugNav.classList.remove('active');
     }, 300);
@@ -100,7 +125,9 @@ setTimeout(() => {
 //  const hashArray = Array.from(new Uint8Array(hashBuffer));
 //  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 //}
-
+/* -------------------------------------------------------------------------- */
+/*                      UPDATE PROFILE FUNCTION OBVIOUSLY                     */
+/* -------------------------------------------------------------------------- */
 async function updateProfileData() {
   const SessionID = localStorage.getItem("SessionID")
   if (!SessionID) {
