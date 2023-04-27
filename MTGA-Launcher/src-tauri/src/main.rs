@@ -1,14 +1,16 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
-use std::{process::{Command, Stdio}, os::windows::process::CommandExt};
+use std::{
+    os::windows::process::CommandExt,
+    process::{Command, Stdio},
+};
 
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[tauri::command]
 fn greet(name: &str) -> String {
     format!("Hello, {}! You've been greeted from Rust!", name)
 }
-
 
 //use std::process::{Command, Stdio};
 //use tauri::api::dialog::FileDialogBuilder;
@@ -34,9 +36,21 @@ fn greet(name: &str) -> String {
 //    Ok(())
 //}
 
+use tauri::Manager;
+use window_shadows::set_shadow;
+
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![greet])
+        .setup(|app| {
+            let window = app.get_window("main").unwrap();
+            use window_vibrancy::{apply_blur, apply_mica, NSVisualEffectMaterial};
+
+            #[cfg(target_os = "windows")]
+            apply_blur(&window, Some((18, 18, 18, 125)))
+                .expect("Unsupported platform! 'apply_blur' is only supported on Windows");
+            set_shadow(&window, true).expect("Unsupported platform!");
+            Ok(())
+        })
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
