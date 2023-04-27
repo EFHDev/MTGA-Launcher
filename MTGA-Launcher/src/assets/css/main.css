@@ -3,7 +3,7 @@ body {
   font-family: Bender;
 }
 
-#transitionable {
+.transitionable {
   color: white;
 }
 
