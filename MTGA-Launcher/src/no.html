@@ -1,89 +1,51 @@
-<!DOCTYPE html>
-<script type="module" src="/src/js/modules/defaulthtmlimports.js" defer></script>
-<div data-include="../src/HTML-AddIns/launcher-settings.html"></div>
-<div data-include="../src/HTML-AddIns/titlebar.html"></div>
-<html>
-
-<head>
-  <meta charset="UTF-8">
-  <title>MTGA Launcher</title>
+  <!DOCTYPE html>
   <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
   <link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
-  <script type="module" src="./js/launch.js" defer></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <div data-include="../src/HTML-AddIns/sidebar.html"></div> 
-</head>
+  <link rel="stylesheet" href="/src/assets/css/styles-dark.css" id="theme-stylesheet">
+  <div data-include="/src/HTML-AddIns/launcher-settings.html"></div>
+  <div data-include="/src/HTML-AddIns/titlebar.html"></div>
+  <div data-include="/src/HTML-AddIns/sidebar.html"></div> 
+  <script type="module" src="/src/js/modules/defaulthtmlimports.js" defer></script> 
+  <script type="module" src="./js/main.js" defer></script>
+  <html>
+    <div class="floating-buttons">
+      <a id="launchgamebutton" class="fa-sharp fa-solid fa-arrow-left">Launch Game</a>
+      <a id="mods" class="fa fa-file-signature"></a>
+  </div>
+  <head>
+    <meta charset="UTF-8">
+    <title>MTGA Launcher</title>
 
-<body style="background-color:#262f83">
-  <script src="https://kit.fontawesome.com/71edd74ab2.js" crossorigin="anonymous"></script>
-  <div class="container">
-    <header class="header">
-      <!-- Greeting box -->
-      <div id="greeting-box"></div>
-    </header>
-    <main class="main">
-      <div class="news">
-        <h2>Make Tarkov Great Again</h2>
-        <div class="article">
-          <p>Its going to be great
-            Nikita will cry</p>
+    <script type="module" src="./js/launch.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  </head>
+
+    <script src="https://kit.fontawesome.com/71edd74ab2.js" crossorigin="anonymous"></script>
+    <div class="container">
+      <header class="header">
+        <!-- Greeting box -->
+        <div id="greeting-box"></div>
+      </header>
+      <main class="main">
+        <div class="news">
+          <h2 id="activemods">Active Mods</h2>
+          <div class="article">
+            <p id="modsactive">AKI Mod: Test mod by Escape from Hell
+              v-0.0.1 </p>
+          </div>
         </div>
-      </div>
-    </main>
-  </div>
-  <div class="progress-bar-container">
-    <div class="progress-bar"></div>
-  </div>
-  <div title="" id="bottombackground"></div>
-  <button id="launch-game-button">Launch Game</button>
-  <div title="Sex" id="xp-needed">XP Needed to reach next level</div>
-  <div title="Current Level" id="levelnow">thisgetsautofilled?</div>
-  <div title="Next Level" id="levelnext">lolwut?</div>
-  <script type="module">
-    import { experience, userlevel, level } from "./js/launch.js";
-    var currentHour = new Date().getHours();
-    var nickname = localStorage.getItem("Nickname");
-    var firstChar = nickname.charAt(0);
-    var capitalizedFirstChar = firstChar.toUpperCase();
-    var capitalizedNickname = capitalizedFirstChar + nickname.slice(1);
-    var morningGreeting = `Good morning ${capitalizedNickname}!`;
-    var afternoonGreeting = `Good afternoon ${capitalizedNickname}!`;
-    var eveningGreeting = `Good evening ${capitalizedNickname}!`;
+      </main>
+    </div>
+    <div class="progress-bar-container">
+      <div class="progress-bar"></div>
+    </div>
+    <div title="" id="bottombackground"></div>
+        <div title="Sex" id="xp-needed" lang="en">XP Needed to reach next level</div>
+    <div title="Current Level" id="levelnow">thisgetsautofilled?</div>
+    <div title="Next Level" id="levelnext">lolwut?</div>
+    <script type="module">
+    </script>
+  </body>
+  <script type="module" src="/src/js/engine/languageEngine.js" defer></script> 
+  </html>
 
-    // Select greeting based on the current hour
-    var greeting = "";
-    if (currentHour >= 5 && currentHour < 12) {
-      greeting = morningGreeting;
-    } else if (currentHour >= 12 && currentHour < 18) {
-      greeting = afternoonGreeting;
-    } else {
-      greeting = eveningGreeting;
-    }
-    var greetingBox = document.getElementById("greeting-box");
-    greetingBox.innerText = greeting;
-
-    var progressBar = document.querySelector(".progress-bar");
-    const userLevel = +localStorage.getItem("Level")
-    const userExp = experience
-    console.log(level)
-    console.log(userLevel)
-    console.log("sex " + level[0][9])
-    const nextLevelExp = level[0][userLevel + 1]
-    console.log(nextLevelExp)
-
-    // Calculate the percent progress towards the next level
-    const percentProgress = (userExp / nextLevelExp) * 100;
-    console.log(`${percentProgress}%`)
-
-    var progress = percentProgress; // 
-    progressBar.style.width = progress + "%";
-    const xpLabel = document.querySelector("#xp-needed");
-    xpLabel.innerText = `${userExp} XP / ${nextLevelExp} XP`;
-    const levelNow = document.querySelector("#levelnow");
-    levelNow.innerText = `${userLevel}`;
-    const levelNext = document.querySelector("#levelnext");
-    levelNext.innerText = `${userLevel + 1}`;
-  </script>
-</body>
-
-</html>

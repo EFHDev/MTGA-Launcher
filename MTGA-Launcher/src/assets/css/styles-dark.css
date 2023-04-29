@@ -73,7 +73,7 @@ body {
   width: 50px;
   height: 50px;
   border-radius: 360px;
-  background-color: #171c4f;
+  background-color: #585858;
   border-radius: 100%;
 }
 
@@ -449,8 +449,25 @@ input[type="text"],
 input[type="button"],
 input[type="password"],
 #theme-select,
+#language-select,
 input[type="select"] {
   background-color: #1b1b1b;
+  color: white;
+  border: none;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+input[type="text"]:hover,
+input[type="button"]:hover,
+input[type="password"]:hover,
+#theme-select:hover,
+input[type="select"]:hover {
+  background-color: #111111;
   color: white;
   border: none;
   padding: 10px;
@@ -675,3 +692,122 @@ input[type="checkbox"]:not(:checked)::before {
   background-color: #404cb1;
   background-image: linear-gradient(to left, #1b1b1b, #000000);
 }
+
+/* -------------------------------------------------------------------------- */
+/*                              MAIN.CS SPECIFICS                             */
+/* -------------------------------------------------------------------------- */
+
+
+a:link {
+  color: #ff0000;
+}
+  
+a:visited {
+  color: #ff0000;
+}
+  
+#greeting-box {
+  display: flex;
+  width: 750;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  background-color: #484444;
+  font-family: 'Bender';
+  font-size: 20px;
+    color: white;
+    padding: 0 20px;
+    margin-bottom: 20px;
+  }
+  
+  .news {
+    padding: 20px;
+  }
+  
+  .news h2 {
+    color: white;
+  }
+  
+  .news .article {
+    background-color: #484444;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  
+  .news .article h3 {
+    margin-top: 0;
+  }
+  
+  .news .article p {
+    color: #ffffff;
+    line-height: 1.5;
+  }
+  .progress-bar-container {
+    position:absolute;
+    bottom: 1vh;
+    top: 92vh;
+    left: 70vh;
+    right: 1vh;
+    display: flex;
+    align-items: center;
+    width: 300px;
+    height: 25px;
+    background-color: #313131;
+    border-radius: 10px;
+  }
+
+  .progress-bar {
+    width: 0%;
+    height: 100%;
+    background-color: #000000;
+    border-radius: 10px;
+    transition: width 0.5s;
+  }
+
+  #bottombackground {
+    position: absolute;
+    height: 50px;
+    top: 450px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+  #xp-needed {
+    position:absolute;
+    bottom: 92vh;
+    top: 92.5vh;
+    text-decoration: underline;
+    font-size: 100%;
+    left: 90vh;
+    opacity: 50%;
+    right: 1vh;
+    background-color: #171717;
+    color:rgb(255, 255, 255);
+    background-blend-mode:exclusion;
+  }
+
+  #levelnext {
+    position:absolute;
+    bottom: 92.25vh;
+    top: 92.25vh;
+    text-decoration:wavy;
+    font-size: 125%;
+    left: 132.5vh;
+    opacity: 100%;
+    right: 1vh;
+    color:rgb(95, 93, 83)
+  }
+
+  #levelnow {
+    position:absolute;
+    bottom: 92.25vh;
+    top: 92.25vh;
+    text-decoration: wavy;
+    font-size: 125%;
+    left: 66.3vh;
+    opacity: 50%;
+    right: 1vh;
+    color:white
+  }

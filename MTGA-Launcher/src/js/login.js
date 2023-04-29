@@ -24,7 +24,7 @@ async function login() {
 
   if (response.headers.get("content-type").includes("application/json")) {
     const responseBody = await response.json();
-    console.log(responseBody.sessionID);
+    (responseBody.sessionID);
     alert('Login successful!');
     var expirationDate = new Date();
     expirationDate.setDate(expirationDate.getDate() + 0.5);
@@ -40,7 +40,7 @@ async function login() {
     const responseText = await response.text();
     if (responseText.includes("INVALID_CREDENTIALS")) {
       alert('Incorrect Password or Username');
-      console.log("naw")
+      ("naw")
     }
   }
 }

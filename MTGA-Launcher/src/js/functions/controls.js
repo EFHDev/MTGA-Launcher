@@ -1,4 +1,5 @@
 import { toggleNavigation } from "./navigation";
+import { ToggleSettings } from "./titlebar";
 
 
 document.addEventListener("keydown", function(event) {
@@ -7,6 +8,6 @@ document.addEventListener("keydown", function(event) {
         event.preventDefault();
         toggleNavigation()
     case "F1" :
-        window.href
+        ToggleSettings()
     }
   });

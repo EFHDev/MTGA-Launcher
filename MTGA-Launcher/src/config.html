@@ -1,10 +1,12 @@
 <!DOCTYPE html>
+<script type="module" src="/src/js/modules/defaulthtmlimports.js" defer></script>
+<div data-include="../src/HTML-AddIns/launcher-settings.html"></div>
+<div data-include="../src/HTML-AddIns/titlebar.html"></div>
+<div data-include="../src/HTML-AddIns/sidebar.html"></div> 
 <html>
 <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 <link rel="stylesheet" type="text/css" href="assets/css/config.css">
 <script src="https://kit.fontawesome.com/71edd74ab2.js" crossorigin="anonymous"></script>
-<script type="module" src="js/modules/defaulthtmlimports.js" defer></script>
-<div data-include="./sidebar.html"></div> 
 
 <body>
     <div class="floating-buttons">
@@ -201,7 +203,7 @@
                         .catch(error => {
                             console.error(error);
                         });
-                    console.log(JSON.stringify(body))
+                    (JSON.stringify(body))
                 }
             })
             .catch(error => {

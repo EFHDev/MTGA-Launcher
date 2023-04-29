@@ -1,8 +1,7 @@
-import ("./functions/navigation")
-import ("./functions/controls")
-import ("./functions/titlebar")
-
-//export async function sha256(message) {
+await import ("./functions/titlebar")
+await import ("./functions/navigation")
+await import ("./functions/controls")
+await import ("./functions/theme")
 //  if (message === "") { return "" }
 //  const msgBuffer = new TextEncoder().encode("MTGA__" + message);
 //  const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);

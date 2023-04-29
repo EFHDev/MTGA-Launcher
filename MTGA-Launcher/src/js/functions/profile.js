@@ -1,7 +1,7 @@
 export async function updateProfileData() {
     const SessionID = localStorage.getItem("SessionID")
     if (!SessionID) { // if sessionID is undefined
-      console.log("Couldnt updateProfileData cause its sessionID is undefined lol") // log error
+      ("Couldnt updateProfileData cause its sessionID is undefined lol") // log error
       return
     }
     const response = await fetch('https://127.0.0.1:42069/tauri/get/charcter', { // fetch data

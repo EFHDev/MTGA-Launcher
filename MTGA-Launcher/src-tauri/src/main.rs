@@ -1,10 +1,7 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
-use std::{
-    os::windows::process::CommandExt,
-    process::{Command, Stdio},
-};
+use std::{process::{Command, Stdio}, os::windows::process::CommandExt};
 
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[tauri::command]
@@ -43,11 +40,6 @@ fn main() {
     tauri::Builder::default()
         .setup(|app| {
             let window = app.get_window("main").unwrap();
-            use window_vibrancy::{apply_blur, apply_mica, NSVisualEffectMaterial};
-
-            #[cfg(target_os = "windows")]
-            apply_blur(&window, Some((18, 18, 18, 125)))
-                .expect("Unsupported platform! 'apply_blur' is only supported on Windows");
             set_shadow(&window, true).expect("Unsupported platform!");
             Ok(())
         })

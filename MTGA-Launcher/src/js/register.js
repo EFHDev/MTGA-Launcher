@@ -20,7 +20,7 @@ async function register() {
   });
   if (response.headers.get("content-type").includes("application/json")) {
     const responseBody = await response.json();
-    console.log(responseBody.sessionID);
+    (responseBody.sessionID);
     alert(`Created new account ${responseBody.username}!`);
     var expirationDate = new Date();
     expirationDate.setDate(expirationDate.getDate() + 0.5);

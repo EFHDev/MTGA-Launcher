@@ -1,27 +1,72 @@
 import { levels } from "./levels";
 import { ask, open } from '@tauri-apps/api/dialog';
-export const level = levels
+import { launch } from "./translations/es";
+const level = levels
 
 const sessionID = localStorage.getItem("SessionID");
 const serveraddress = "127.0.0.1:42069";
-export const experience = localStorage.getItem("Experience");
-export const userlevel = localStorage.getItem("level");
+const experience = localStorage.getItem("Experience");
+const userlevel = localStorage.getItem("level");
+
+var currentHour = new Date().getHours();
+var nickname = localStorage.getItem("Nickname");
+var firstChar = nickname.charAt(0);
+var capitalizedFirstChar = firstChar.toUpperCase();
+var capitalizedNickname = capitalizedFirstChar + nickname.slice(1);
+const language = localStorage.getItem('Language') || 'en';
+const goodmorning = launch[1].greetings.goodmorning[language];
+const goodafternoon = launch[1].greetings.goodafternoon[language]; 
+const goodevening = launch[1].greetings.goodevening[language];
+var morningGreeting = `${goodmorning}, ${capitalizedNickname}!`;
+var afternoonGreeting = `${goodafternoon}, ${capitalizedNickname}!`;
+var eveningGreeting = `${goodevening}, ${capitalizedNickname}!`;
+
+// Select greeting based on the current hour
+var greeting = "";
+if (currentHour >= 5 && currentHour < 12) {
+  greeting = morningGreeting;
+} else if (currentHour >= 12 && currentHour < 18) {
+  greeting = afternoonGreeting;
+} else {
+  greeting = eveningGreeting;
+}
+var greetingBox = document.getElementById("greeting-box");
+greetingBox.innerText = greeting;
+
+var progressBar = document.querySelector(".progress-bar");
+const userLevel = +localStorage.getItem("Level")
+const userExp = localStorage.getItem("Experience");
+("sex " + level[0][9])
+const nextLevelExp = level[0][userLevel + 1]
+
+// Calculate the percent progress towards the next level
+const percentProgress = (userExp / nextLevelExp) * 100;
+(`${percentProgress}%`)
+
+var progress = percentProgress; // 
+progressBar.style.width = progress + "%";
+const xpLabel = document.querySelector("#xp-needed");
+xpLabel.innerText = `${userExp} XP / ${nextLevelExp} XP`;
+const levelNow = document.querySelector("#levelnow");
+levelNow.innerText = `${userLevel}`;
+const levelNext = document.querySelector("#levelnext");
+levelNext.innerText = `${userLevel + 1}`;
 
 async function login() {
   if (!localStorage.getItem("Agreed")) {
-    console.log("called login");
-    const confirmed = await ask("By proceeding, you agree that we are not liable for any bans (Wont happen unless YOU fuck something up.) resulting from the use of this modifacation of Tarkov. Do you agree?", { title: 'Liability agreement', type: 'warning' });
+    ("called login");
+    const confirmed = await ask(`${launch[1].liabilitywarning[language]}`, { title: `${launch[1].liabilitywarningtitle[language]}`, type: 'warning' });
     if (!confirmed) {
-      alert("You did not agree. Game will not launch.")
+      alert(`${launch[1].didnotagree[language]}`)
     }
     else{
     localStorage.setItem("Agreed", true);
-    launch();
+    Launch();
     return;
   }
 }
 else {
-  launch();
+  Launch();
   return
 }
 }
@@ -35,9 +80,9 @@ async function restart() {
   });
 }
 
-async function launch() {
+async function Launch() {
   if (!localStorage.getItem("tarkovPath")) {
-    console.log("tarkovPath isnt defined!!! Opening select dialog!")
+    ("tarkovPath isnt defined!!! Opening select dialog!")
     const selected = await open({
       multiple: false,
       filters: [{
@@ -77,7 +122,7 @@ async function launch() {
   }
 }
 
-const launchGameButton = document.getElementById("launch-game-button");
+const launchGameButton = document.getElementById("launchgamebutton");
 
 if (launchGameButton.dataset.listener !== 'true') {
   launchGameButton.dataset.listener = 'true';
