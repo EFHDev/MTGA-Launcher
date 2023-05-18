@@ -2,31 +2,35 @@
 <link rel="stylesheet" href="/src/assets/css/styles-dark.css" id="theme-stylesheet">
 <div data-include="/src/HTML-AddIns/launcher-settings.html"></div>
 <div data-include="/src/HTML-AddIns/titlebar.html"></div>
-<div data-include="/src/HTML-AddIns/sidebar.html"></div> 
+<div data-include="/src/HTML-AddIns/sidebar.html"></div>
 <script type="module" src="/src/js/modules/defaulthtmlimports.js" defer></script>
 <html>
+
 <head>
   <script type="module" src="/src/js/login.js" defer></script>
   <title>Login</title>
   <link rel="stylesheet" type="text/css" href="src/assets/css/login.css">
 </head>
-  <script src="https://kit.fontawesome.com/71edd74ab2.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/71edd74ab2.js" crossorigin="anonymous"></script>
 </body>
+
 </html>
-    <title>Login Form</title>
+<title>Login Form</title>
 </head>
+
 <body>
   <form>
     <h1 id="restricted">Restricted</h1>
     <label for="h1" id="restrictedh1">Login to contuine.</label>
-    <label for="h1" id="label2" id="restrictedh2">Once you login, you will stay logged in until you click "Switch Profiles".</label>
-    <label for="username">Username:</label>
+    <label for="h1" id="restrictedh2">Once you login, you will stay logged in until you click "Switch Profiles".</label>
+    <label for="username" id="usernamelbl">Username:</label>
     <input type="text" id="username" name="username" placeholder="Enter username...">
-    <label for="password">Password:</label>
+    <label for="password" id="passwordlabel">Password:</label>
     <input type="password" id="password" name="password" placeholder="Enter password...">
     <div class="signup-link" id="signup">
-      No account? <a id="signupA" href="/src/register.html">Sign up nerd</a>
+      No account?
     </div>
+    <a id="signupA" href="/src/register.html">Sign up nerd</a>
     <input type="button" value="Login" id="login">
   </form>
 </body>

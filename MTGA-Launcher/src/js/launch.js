@@ -45,7 +45,7 @@ const percentProgress = (userExp / nextLevelExp) * 100;
 
 var progress = percentProgress; // 
 progressBar.style.width = progress + "%";
-const xpLabel = document.querySelector("#xp-needed");
+const xpLabel = document.querySelector("#xp_needed");
 xpLabel.innerText = `${userExp} XP / ${nextLevelExp} XP`;
 const levelNow = document.querySelector("#levelnow");
 levelNow.innerText = `${userLevel}`;
@@ -110,16 +110,13 @@ async function Launch() {
     })
   });
   const responseBody = await response.json();
-
   if (responseBody === "INVALID_SESSION") {
     alert("Invalid session! Please login again!");
     //accountcontrol.logout();
   } else if (responseBody === "TARKOV_PATH_INVALID") {
     alert("Your tarkov path is invalid! Please click launch again to re-set it!");
     localStorage.removeItem("tarkovPath");
-  } else {
-    window.minimi;
-  }
+  } 
 }
 
 const launchGameButton = document.getElementById("launchgamebutton");

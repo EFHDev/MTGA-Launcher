@@ -7,7 +7,10 @@ document.addEventListener("keydown", function(event) {
     case "Tab" :
         event.preventDefault();
         toggleNavigation()
+        break;
     case "F1" :
+        event.preventDefault();
         ToggleSettings()
+        break;
     }
   });

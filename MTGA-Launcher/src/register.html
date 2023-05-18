@@ -2,17 +2,21 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
-    <link rel="stylesheet" type="text/css" href="./assets/css/register.css">
-    <script src="https://kit.fontawesome.com/71edd74ab2.js" crossorigin="anonymous"></script>
-    <script type="module" src="js/register.js" defer></script>
-    <script type="module" src="js/modules/defaulthtmlimports.js" defer></script>
-    <div data-include="./HTML-AddIns/sidebar"></div> 
+    <meta charset="UTF-8">
+    <title>Page Under Construction...</title>
+    <script type="module" src="/src/js/main.js" defer></script>
+    <link rel="stylesheet" href="/src/assets/css/styles-dark.css" id="theme-stylesheet">
+    <div data-include="/src/HTML-AddIns/launcher-settings.html"></div>
+    <div data-include="/src/HTML-AddIns/titlebar.html"></div>
+    <div data-include="/src/HTML-AddIns/sidebar.html"></div> 
+    <script type="module" src="/src/js/modules/defaulthtmlimports.js" defer></script> 
+    <script type="module" src="./js/main.js" defer></script>
 </head>
-
-<body style="background-color:#262f83;">
     <script src="https://kit.fontawesome.com/71edd74ab2.js" crossorigin="anonymous"></script>
   </body>
+  <div class="floating-buttons">
+    <a id="registerbtn" class="fa fa-save"></a>
+</div>
     <div class="registration-form">
         <h2>Create an account</h2>
         <form>
@@ -34,6 +38,5 @@
                 </select>
             </div>
 
-            <button id="registerbtn" type="button">Register</button>
         </form>
     </div>

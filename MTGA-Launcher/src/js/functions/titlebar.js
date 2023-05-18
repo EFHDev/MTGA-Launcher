@@ -25,8 +25,20 @@ document
     document.getElementById('animationspeed').title = animspeed
     localStorage.setItem("animSpeed", animspeed)
   })
+const language = localStorage.getItem("Language")
+  document.
+  getElementById('language-select')
+  .addEventListener('change', () => {
+    const langsel = document.getElementById('language-select').value
+    localStorage.setItem("Language", langsel )
+    window.location.reload(); 
+    ToggleSettings() 
+  })
+
   document.getElementById('animationspeed').value = localStorage.getItem("animSpeed")
   document.getElementById('animationspeed').title = localStorage.getItem("animSpeed")
+  document.getElementById('theme-select').value = localStorage.getItem("theme")
+  document.getElementById('language-select').value = localStorage.getItem("Language")
 
 
 

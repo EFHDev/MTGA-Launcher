@@ -101,7 +101,7 @@ a:visited {
     bottom: 0;
     z-index: -1;
   }
-  #xp-needed {
+  #xp_needed {
     position:absolute;
     bottom: 92vh;
     top: 92.5vh;

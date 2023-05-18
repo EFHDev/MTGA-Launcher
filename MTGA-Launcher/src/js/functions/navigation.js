@@ -69,11 +69,12 @@ logo.addEventListener('click', () => {
 });
 
 if (!localStorage.getItem('DebugMode')) {
-  document.querySelectorAll('.transitionable').forEach(el => el.remove());
+  document.querySelectorAll('.transitionable').forEach(el => el.parentNode.removeChild(el));
   document.querySelectorAll('#DebugNav, #DebugNav1, #DebugNav2, #DebugNav3, #DebugNav4, .sidebar li a i.fa-solid.fa-bug').forEach(el => el.style.display = 'none');
 }
 
+if(localStorage.getItem('DebugMode')) {
 document.querySelector('#DebugNav').addEventListener('click', () => {
   document.querySelectorAll('#DebugNav1, #DebugNav2, #DebugNav3, #DebugNav4, .sidebar li a i.fa-solid.fa-bug').forEach(el => el.classList.toggle('active'));
   setTimeout(() => document.querySelector('#DebugNav').classList.toggle('active'), 300);
-});
+})};

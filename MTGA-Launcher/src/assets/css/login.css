@@ -21,7 +21,6 @@
 
     input[type="text"],
     input[type="password"] {
-        color: white;
         border: none;
         padding: 10px;
         margin-bottom: 10px;
@@ -30,7 +29,6 @@
     }
 
     input[type="button"] {
-        color: white;
         border: none;
         padding: 10px;
         margin-top: 10px;

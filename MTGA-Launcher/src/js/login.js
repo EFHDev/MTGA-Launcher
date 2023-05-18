@@ -60,16 +60,16 @@ window.addEventListener("DOMContentLoaded", () => {
   document.getElementById('login').addEventListener("click", () => login());
 });
 //Make the login button become "Switch Profiles" if !SessionID @ localstorage
-if (localStorage.getItem("SessionID") != undefined) {
-  const signup = document.getElementById("signup")
-  const restrictedtext = document.getElementById("restricted")
-  const restrictedlabel1 = document.getElementById("restrictedh1")
-  const restrictedlabel2 = document.getElementById("label2")
-  const signupa = document.getElementById("signupa")
-  const loginbtn = document.getElementById("login");
-  loginbtn.value = "Switch Profiles"
-  restrictedtext.textContent = "Switch Profiles"
-  restrictedlabel1.textContent = ""
-  restrictedlabel2.textContent = "You will stay logged into this new account until you switch again."
-  signup.innerHTML = 'Want a new profile? <a href="/src/register.html">Make one nerd</a>';
-}
+//if (localStorage.getItem("SessionID") != undefined) {
+//  const signup = document.getElementById("signup")
+//  const restrictedtext = document.getElementById("restricted")
+//  const restrictedlabel1 = document.getElementById("restrictedh1")
+//  const restrictedlabel2 = document.getElementById("label2")
+//  const signupa = document.getElementById("signupa")
+//  const loginbtn = document.getElementById("login");
+//  loginbtn.value = "Switch Profiles"
+//  restrictedtext.textContent = "Switch Profiles"
+//  restrictedlabel1.textContent = ""
+//  restrictedlabel2.textContent = "You will stay logged into this new account until you switch again."
+//  signup.innerHTML = 'Want a new profile? <a href="/src/register.html">Make one nerd</a>';
+//}
