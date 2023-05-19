@@ -14,5 +14,12 @@ A launcher built in Tauri for MTGA.
 
 # How you can help
 Commiting new featues, or if you dont know how to code or anything like that, correcting language mistakes in src/translations! Almost all the translations from other languages were translated using GPT-4 (Using english as a base) so they are almost defenitly rough, and incorrect in some parts!
+#Themes
+
+MTGA Classic
 
 ![image](https://user-images.githubusercontent.com/70953258/232225528-ba2bae63-74d3-4482-942b-88a70a5c33dc.png)
+
+DarkHC
+
+![image](https://github.com/EFHDev/MTGA-Launcher/assets/70953258/2794c3d2-48ac-4a02-b2f0-3af0cbec286b)
