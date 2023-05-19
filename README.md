@@ -14,7 +14,8 @@ A launcher built in Tauri for MTGA.
 
 # How you can help
 Commiting new featues, or if you dont know how to code or anything like that, correcting language mistakes in src/translations! Almost all the translations from other languages were translated using GPT-4 (Using english as a base) so they are almost defenitly rough, and incorrect in some parts!
-#Themes
+
+# Themes
 
 MTGA Classic
 
