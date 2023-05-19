@@ -49,6 +49,7 @@ async function register() {
 async function loggedIn(sessionID, username) {
   return;
 }
-window.addEventListener("DOMContentLoaded", () => {
-  document.getElementById('registerbtn').addEventListener("click", () => register());
+document.getElementById('registerbtn').addEventListener("click", (event) => {
+  event.preventDefault();
+  register();
 });

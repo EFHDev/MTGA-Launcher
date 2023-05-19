@@ -22,7 +22,7 @@ async function setTheme(theme) {
         ("Theme set to MTGA Classic")
     }
     else if (theme === 'mtgamodern') {
-        stylesheet.href = '/src/assets/css/styles-mtgamodern.css';
+        stylesheet.href = '/src/assets/css/better-css-test.css';
         ("Theme set to MTGA Modern")
     }
     else if(theme === 'Custom') {

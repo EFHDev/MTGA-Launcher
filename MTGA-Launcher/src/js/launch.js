@@ -119,7 +119,7 @@ async function Launch() {
   } 
 }
 
-const launchGameButton = document.getElementById("launchgamebutton");
+const launchGameButton = document.getElementById("launch-game-button");
 
 if (launchGameButton.dataset.listener !== 'true') {
   launchGameButton.dataset.listener = 'true';

@@ -14,11 +14,30 @@
   display: block;
   margin-top: 10px;
   color: white;
-  font-family: 'Bender', sans-serif;
+  font-family: 'Bender';
 }
 
 body {
   background: #1F1F1F;
+}
+
+#launch-game-button {
+  background-color: rgb(41, 41, 41);;
+  position:absolute;
+  top: 90.9vh;
+  left: 7vh;
+  color: white;
+  padding: 8px 50px;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Bender';
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+#launch-game-button:hover {
+  background-color: rgb(23, 23, 23);;
 }
 
 #settings-window.active {
@@ -357,10 +376,6 @@ button::-moz-focus-inner {
     font-size: 22px;
   }
 
-  .example-elements a,
-  button {
-    display: none;
-  }
 
   .example-elements p:before,
   .example-elements p:after {

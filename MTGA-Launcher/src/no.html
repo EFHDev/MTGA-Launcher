@@ -5,10 +5,18 @@
   <div data-include="/src/HTML-AddIns/sidebar.html"></div> 
   <script type="module" src="/src/js/modules/defaulthtmlimports.js" defer></script> 
     <html>
-    <div class="floating-buttons">
-      <a id="launchgamebutton" class="fa-sharp fa-solid fa-arrow-left">Launch Game</a>
-      <a id="mods" class="fa fa-file-signature"></a>
-  </div>
+      
+    </body>
+<script>
+  import setTheme from 'src/js/functions/theme.js'
+const theme = localStorage.getItem('theme');
+    setTheme(theme);
+    document.getElementById('theme-select').addEventListener('change', async () => {
+      const theme = document.getElementById('theme-select').value;
+      await setTheme(theme);
+      localStorage.setItem("theme", theme);
+    });
+</script>
   <head>
     <meta charset="UTF-8">
     <title>MTGA Launcher</title>
@@ -25,10 +33,9 @@
       </header>
       <main class="main">
         <div class="news">
-          <h2 id="activemods">Active Mods</h2>
+          <h2 id="activemods">Coming soon: Active mods</h2>
           <div class="article">
-            <p id="modsactive">AKI Mod: Test mod by Escape from Hell
-              v-0.0.1 </p>
+            <p id="modsactive">AKI Mod: This isnt actually implmented yet. Kekw v-0.0.1 </p>
           </div>
         </div>
       </main>
@@ -40,8 +47,7 @@
         <div title="Sex" id="xp_needed"></div>
     <div title="Current Level" id="levelnow">thisgetsautofilled?</div>
     <div title="Next Level" id="levelnext">lolwut?</div>
-    <script type="module">
-    </script>
+    <button id="launch-game-button">Launch Game</button>
   </body>
   <script type="module" src="/src/js/engine/languageEngine.js" defer></script> 
   <script type="module" src="./js/main.js" defer></script>

@@ -6,7 +6,9 @@ const toggleNav = document.getElementById('close-nav');
 const mouseThreshold = 100; // adjust this value to change the distance threshold in pixels
 
 if (!sessionID) { // if not logged in
-  const { homeButton, profileButton, switchprofile} = document.getElementById
+  const homeButton = document.getElementById("homeButton");
+  const profileButton = document.getElementById("profileButton");
+  const switchProfile = document.getElementById("switchprofile");
 
   homeButton.disabled = true;
   homeButton.style.opacity = "0.50";
@@ -16,14 +18,19 @@ if (!sessionID) { // if not logged in
   profileButton.style.opacity = "0.50";
   profileButton.style.cursor = "not-allowed";
   profileButton.title = "Login first.";
-  switchprofile.title = "Login";
+  switchProfile.title = "Login";
+
   homeButton.addEventListener("click", (event) => { // disable home button
     event.preventDefault();
   });
+
   profileButton.addEventListener("click", (event) => { // disable profile button
     event.preventDefault();
   });
 }
+  profileButton.addEventListener("click", (event) => { // disable profile button
+    event.preventDefault();
+  });
 toggleNav.addEventListener('click', function (e) { // close navigation
   e.preventDefault();
   nav.classList.toggle('show');
@@ -69,8 +76,13 @@ logo.addEventListener('click', () => {
 });
 
 if (!localStorage.getItem('DebugMode')) {
-  document.querySelectorAll('.transitionable').forEach(el => el.parentNode.removeChild(el));
-  document.querySelectorAll('#DebugNav, #DebugNav1, #DebugNav2, #DebugNav3, #DebugNav4, .sidebar li a i.fa-solid.fa-bug').forEach(el => el.style.display = 'none');
+  var debugLiElement = document.getElementById('123');
+  if (debugLiElement) {
+    debugLiElement.parentNode.removeChild(debugLiElement);
+  }
+
+  document.querySelectorAll('#DebugNav, #DebugNav1, #DebugNav2, #DebugNav3, #DebugNav4, .sidebar li a i.fa-solid.fa-bug').forEach(el => el.style.display = "none");
+  document.querySelectorAll('#DebugNav, #DebugNav1, #DebugNav2, #DebugNav3, #DebugNav4, .sidebar li a i.fa-solid.fa-bug').forEach(el => el.style.height = "0px");
 }
 
 if(localStorage.getItem('DebugMode')) {
