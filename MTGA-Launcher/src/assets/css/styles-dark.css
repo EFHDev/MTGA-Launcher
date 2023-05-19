@@ -21,7 +21,7 @@ body {
   background: #1F1F1F;
 }
 
-#launch-game-button {
+#launchgamebutton {
   background-color: rgb(41, 41, 41);;
   position:absolute;
   top: 90.9vh;
@@ -36,7 +36,7 @@ body {
   transition: background-color 0.2s ease-in-out;
 }
 
-#launch-game-button:hover {
+#launchgamebutton:hover {
   background-color: rgb(23, 23, 23);;
 }
 
@@ -246,20 +246,16 @@ button {
   text-decoration: none;
   font-family: Bender, sans-serif;
   font-size: 0.7em;
-  background-color: rgba(174, 184, 192, 0.55);
-  color: #1F1F1F;
+  background-color: #2d2d2d;
+  color: white;
 }
 
 button:hover {
-  background-color: #5eaaf7;
+  background-color:  #0e0e0e;
 }
 
 button:active {
   transform: scale(0.98);
-}
-
-button:focus {
-  box-shadow: 0 0 2px 2px #298bcf;
 }
 
 button::-moz-focus-inner {
@@ -414,7 +410,7 @@ body {
 /* Show the tooltip text when you mouse over the tooltip container */
 
 /* ------------------------------- NAVIGATION ------------------------------- */
-.close-nav {
+.closenav {
   position: absolute;
   transform: rotate(90deg);
   opacity: 50%;
@@ -429,16 +425,16 @@ body {
   transition: right 1s ease-in-out, transform 0.3s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-.close-nav.hover {
+.closenav.hover {
   transform: rotate(+90deg);
 }
 
-.close-nav:hover {
+.closenav:hover {
   opacity: inherit;
   transform: rotate(+180deg);
 }
 
-.close-nav i {
+.closenav i {
   color: whitesmoke;
   background-color: none;
 }
@@ -526,7 +522,7 @@ input[type="select"]:hover {
   color: whitesmoke;
 }
 
-.sidebar a.close-nav:hover {
+.sidebar a.closenav:hover {
   background-color: transparent;
   opacity: 100%;
   background-blend-mode: normal;

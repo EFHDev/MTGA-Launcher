@@ -4,6 +4,7 @@
 <div data-include="/src/HTML-AddIns/titlebar.html"></div>
 <div data-include="/src/HTML-AddIns/sidebar.html"></div>
 <script type="module" src="/src/js/modules/defaulthtmlimports.js" defer></script>
+<script type="module" src="/src/js/main.js" defer></script>
 <html>
 
 <head>
@@ -19,9 +20,9 @@
 </head>
 
 <body>
-  <form>
+  <form id="loginForm">
     <h1 id="restricted">Restricted</h1>
-    <label for="h1" id="restrictedh1">Login to contuine.</label>
+    <label for="h1" id="restrictedh1">Login to continue.</label>
     <label for="h1" id="restrictedh2">Once you login, you will stay logged in until you click "Switch Profiles".</label>
     <label for="username" id="usernamelbl">Username:</label>
     <input type="text" id="username" name="username" placeholder="Enter username...">
@@ -32,7 +33,7 @@
     </div>
     <a id="signupA" href="/src/register.html">Sign up nerd</a>
     <input type="button" value="Login" id="login">
-    <label for="login" id="passwordlabel">Not working? Make sure your server is started!</label>
+    <label for="login" id="passwordlabel2">Not working? Make sure your server is started!</label>
 
   </form>
 </body>

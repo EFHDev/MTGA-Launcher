@@ -1,5 +1,5 @@
 /* Override the toggle navbar buttons color because this goes over white*/
-.close-nav i {
+.closenav i {
   color: rgb(255, 0, 0);
   background-color: none;
 }

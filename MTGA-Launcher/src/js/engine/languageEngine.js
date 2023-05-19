@@ -1,4 +1,4 @@
-import { launch, login, settings } from "../translations/es";
+import { launch, login, settings, sidebar } from "../translations/es";
 import { fourofour } from "../translations/es";
 const yes = [
 
@@ -60,7 +60,10 @@ document.addEventListener('DOMContentLoaded', function () {
             element.innerHTML = `${translation}`;
           }
           if (element.title) {
-            element.title = translation;
+            element.title = translation;          
+          }
+          else {
+            console.log('Something went wrong.')
           }
         }
       })
@@ -89,3 +92,29 @@ document.addEventListener('DOMContentLoaded', function () {
       })
     })
   }
+
+  export function translateSidebar () {
+    const language = localStorage.getItem('Language') || 'en'; //Default to english
+  
+      sidebar.forEach(item => {
+        Object.entries(item).forEach(([key, value]) => {
+          switch (key) {
+            case "homeButton":
+              const translation = value[language];
+              document.getElementById("homeButton").title = translation;
+          case "profileButton":
+            const translation2 = value[language];
+            document.getElementById("profileButton").title = translation2;
+          case "settingssidebar":
+            const translation3 = value[language];
+            document.getElementById("settingssidebar").title = translation3;
+          case "configbtn":
+            const translation4 = value[language];
+            document.getElementById("configbtn").title = translation4;
+          case "switchprofile":
+            const translation5 = value[language];
+            document.getElementById("switchprofile").title = translation5;
+            case "closenav":
+              const translation6 = value[language];
+              document.getElementById("closenav").title = translation6;
+        }})})}

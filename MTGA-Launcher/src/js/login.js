@@ -1,3 +1,4 @@
+import { server } from "./main";
 
 if (localStorage.getItem("SessionID") && !sessionStorage.getItem("AutoLogin")) {
   sessionStorage.setItem("AutoLogin", "true")
@@ -11,7 +12,7 @@ async function login() {
 
   //const hashedPassword = await sha256(password); // hash password with SHA-256
 
-  const response = await fetch('https://127.0.0.1:42069/tauri/account/login', {
+  const response = await fetch(`${server}/tauri/account/login`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -56,8 +57,10 @@ async function loggedIn(sessionID, username) {
   return;
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-  document.getElementById('login').addEventListener("click", () => login());
+document.getElementById('login').addEventListener("click", (event) => {
+  console.log("click")
+  event.preventDefault();
+  login();
 });
 //Make the login button become "Switch Profiles" if !SessionID @ localstorage
 //if (localStorage.getItem("SessionID") != undefined) {

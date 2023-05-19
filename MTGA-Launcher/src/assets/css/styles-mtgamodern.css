@@ -333,7 +333,7 @@ body {
 /* Show the tooltip text when you mouse over the tooltip container */
 
 /* ------------------------------- NAVIGATION ------------------------------- */
-.close-nav {
+.closenav {
   position: absolute;
   transform: rotate(180deg);
   opacity: 50%;
@@ -346,16 +346,16 @@ body {
   transition: right 1s ease-in-out, transform 0.3s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-.close-nav.hover {
+.closenav.hover {
   transform: rotate(180deg);
 }
 
-.close-nav:hover {
+.closenav:hover {
   opacity: inherit;
   transform: rotate(+360deg);
 }
 
-.close-nav i {
+.closenav i {
   color: white;
   background-color: none;
 }
@@ -420,7 +420,7 @@ input[type="password"] {
   color: black;
 }
 
-.sidebar a.close-nav:hover {
+.sidebar a.closenav:hover {
   background-color: transparent;
   opacity: 100%;
   background-blend-mode: normal;

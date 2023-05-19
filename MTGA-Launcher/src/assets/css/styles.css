@@ -393,7 +393,7 @@ body {
 /* Show the tooltip text when you mouse over the tooltip container */
 
 /* ------------------------------- NAVIGATION ------------------------------- */
-.close-nav {
+.closenav {
   position: absolute;
   transform: rotate(90deg);
   opacity: 50%;
@@ -408,16 +408,16 @@ body {
   transition: right 1s ease-in-out, transform 0.3s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-.close-nav.hover {
+.closenav.hover {
   transform: rotate(+90deg);
 }
 
-.close-nav:hover {
+.closenav:hover {
   opacity: inherit;
   transform: rotate(+180deg);
 }
 
-.close-nav i {
+.closenav i {
   color: whitesmoke;
   background-color: none;
 }
@@ -505,7 +505,7 @@ input[type="select"]:hover {
   color: whitesmoke;
 }
 
-.sidebar a.close-nav:hover {
+.sidebar a.closenav:hover {
   background-color: transparent;
   opacity: 100%;
   background-blend-mode: normal;
@@ -1028,7 +1028,7 @@ a:visited {
             font-size: 300%;
         }
 
-        #launch-game-button {
+        #launchgamebutton {
           background-color: #1b225d;
           position:absolute;
           top: 90.9vh;
@@ -1043,6 +1043,6 @@ a:visited {
           transition: background-color 0.2s ease-in-out;
         }
         
-        #launch-game-button:hover {
+        #launchgamebutton:hover {
           background-color: #0d1032;
         }

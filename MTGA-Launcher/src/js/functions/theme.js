@@ -1,4 +1,8 @@
 const theme = localStorage.getItem('theme');
+if(!localStorage.getItem('theme')){
+    localStorage.setItem('theme', 'darkHC') //default theme
+}
+
     setTheme(theme);
     document.getElementById('theme-select').addEventListener('change', async () => {
       const theme = document.getElementById('theme-select').value;

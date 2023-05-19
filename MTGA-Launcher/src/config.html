@@ -22,11 +22,12 @@
     </div>
 
     <script>
+        const server = localStorage.getItem('server')
         const sessionID = localStorage.getItem("SessionID");
         const saveButton = document.getElementById('save-button');
         saveButton.style.color = "red";
         saveButton.disabled = true
-        fetch('https://127.0.0.1:42069/tauri/get/config', {
+        fetch(`${server}/tauri/get/config`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -183,7 +184,7 @@
                 function saveChanges(key, config) {
                     const saveButton = document.getElementById('save-button');
                     saveButton.disabled = true;
-                    fetch('https://127.0.0.1:42069/tauri/update/config', {
+                    fetch(`${server}/tauri/update/config`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'

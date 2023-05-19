@@ -325,7 +325,7 @@ body {
 }
 
 /* --------------------------------- SIDEBAR -------------------------------- */
-.close-nav {
+.closenav {
   position: absolute;
   transform: rotate(90deg);
   opacity: 50%;
@@ -340,16 +340,16 @@ body {
   transition: right 1s ease-in-out, transform 0.3s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-.close-nav.hover {
+.closenav.hover {
   transform: rotate(+90deg);
 }
 
-.close-nav:hover {
+.closenav:hover {
   opacity: inherit;
   transform: rotate(+180deg);
 }
 
-.close-nav i {
+.closenav i {
   color: whitesmoke;
   background-color: none;
 }
@@ -400,7 +400,7 @@ body {
   color: whitesmoke;
 }
 
-.sidebar a.close-nav:hover {
+.sidebar a.closenav:hover {
   background-color: transparent;
   opacity: 100%;
   background-blend-mode: normal;

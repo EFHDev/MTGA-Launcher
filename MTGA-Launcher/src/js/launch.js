@@ -1,6 +1,7 @@
 import { levels } from "./levels";
 import { ask, open } from '@tauri-apps/api/dialog';
 import { launch } from "./translations/es";
+import { server } from "./main";
 const level = levels
 
 const sessionID = localStorage.getItem("SessionID");
@@ -72,7 +73,7 @@ else {
 }
 
 async function restart() {
-  const response = await fetch('https://127.0.0.1:42069/tauri/server/restart', {
+  const response = await fetch(`${server}/tauri/server/restart`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
@@ -99,7 +100,7 @@ async function Launch() {
   }
 
   const tarkovPath = localStorage.getItem("tarkovPath");
-  const response = await fetch('https://127.0.0.1:42069/tauri/launcher/start', {
+  const response = await fetch(`${server}/tauri/launcher/start`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -119,7 +120,7 @@ async function Launch() {
   } 
 }
 
-const launchGameButton = document.getElementById("launch-game-button");
+const launchGameButton = document.getElementById("launchgamebutton");
 
 if (launchGameButton.dataset.listener !== 'true') {
   launchGameButton.dataset.listener = 'true';

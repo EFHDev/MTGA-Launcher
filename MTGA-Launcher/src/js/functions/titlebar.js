@@ -35,10 +35,19 @@ const language = localStorage.getItem("Language")
     ToggleSettings() 
   })
 
+  document.
+  getElementById('Server')
+  .addEventListener('change', () => {
+    const serverval = document.getElementById('Server').value
+    localStorage.setItem("server", serverval ) 
+  })
+
   document.getElementById('animationspeed').value = localStorage.getItem("animSpeed")
   document.getElementById('animationspeed').title = localStorage.getItem("animSpeed")
   document.getElementById('theme-select').value = localStorage.getItem("theme")
   document.getElementById('language-select').value = localStorage.getItem("Language")
+  document.getElementById('Server').value = localStorage.getItem("server")
+
 
 
 

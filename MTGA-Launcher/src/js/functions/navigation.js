@@ -1,7 +1,7 @@
 const sessionID = localStorage.getItem("SessionID");
 const nav = document.querySelector('.sidebar');
-//const toggleNav = document.querySelector('.close-nav');
-const toggleNav = document.getElementById('close-nav');
+//const toggleNav = document.querySelector('.closenav');
+const toggleNav = document.getElementById('closenav');
 (toggleNav);
 const mouseThreshold = 100; // adjust this value to change the distance threshold in pixels
 
